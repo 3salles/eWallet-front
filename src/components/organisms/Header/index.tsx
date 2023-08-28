@@ -1,8 +1,12 @@
 import { Button } from "@/components/atoms/Button";
 import { Logo } from "@/components/molecules/Logo";
+import { routerPaths } from "@/routes/routerPaths";
 import { HStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <HStack
       bg="purple.900"
@@ -14,8 +18,19 @@ export const Header = () => {
     >
       <Logo />
       <HStack spacing="32px">
-        <Button label="Cadastrar" variant="outline" />
-        <Button label="Entrar" />
+        <Button
+          label="Cadastrar"
+          variant="outline"
+          onClick={() => {
+            navigate(routerPaths.signup);
+          }}
+        />
+        <Button
+          label="Entrar"
+          onClick={() => {
+            navigate(routerPaths.login);
+          }}
+        />
       </HStack>
     </HStack>
   );
