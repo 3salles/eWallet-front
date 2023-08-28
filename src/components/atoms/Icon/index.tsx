@@ -4,22 +4,19 @@ import {
   Icon as ChakraIcon,
   IconProps as ChakraIconProps,
 } from "@chakra-ui/react";
+
+import { IconType } from "react-icons";
 import { FiGrid } from "react-icons/fi";
 import { BiTransfer } from "react-icons/bi";
 import { FaMoneyCheck } from "react-icons/fa";
 import { TfiTarget } from "react-icons/tfi";
 import { CgLogOut } from "react-icons/cg";
-import { IconType } from "react-icons";
-
-export type IconsType =
-  | "bill"
-  | "goals"
-  | "logout"
-  | "overview"
-  | "transaction";
+import { SlMenu } from "react-icons/sl";
+import { BiSolidChevronsRight } from "react-icons/bi";
+import { ICustomIcons } from "@/types/icons.types";
 
 interface IconProps extends ChakraIconProps {
-  name: IconsType;
+  name: ICustomIcons;
 }
 
 const icons = {
@@ -28,6 +25,8 @@ const icons = {
   logout: CgLogOut,
   overview: FiGrid,
   transaction: BiTransfer,
+  menu: SlMenu,
+  chevron: BiSolidChevronsRight,
 };
 
 export const Icon = ({ name, ...rest }: IconProps) => {

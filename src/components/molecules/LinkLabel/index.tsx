@@ -1,9 +1,10 @@
-import { Icon, IconsType } from "@/components/atoms/Icon";
+import { Icon } from "@/components/atoms/Icon";
+import { ICustomIcons } from "@/types/icons.types";
 import { HStack, Link, Text } from "@chakra-ui/react";
 
 interface LinkLabelProps {
   label: string;
-  icon: IconsType;
+  icon: ICustomIcons;
   redirect: string;
   active?: boolean;
 }
