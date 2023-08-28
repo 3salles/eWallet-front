@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import { BrandingSection } from "./components/organisms/brandingSection";
 import { FormSection } from "./components/organisms/formSection";
 
-export const SignupPage = () => {
+export const SignUpPage = () => {
   return (
     <Flex
       as="article"
