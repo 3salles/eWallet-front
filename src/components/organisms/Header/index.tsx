@@ -1,6 +1,6 @@
+import { Button } from "@/components/atoms/Button";
+import { Logo } from "@/components/molecules/Logo";
 import { HStack } from "@chakra-ui/react";
-import { Logo } from "../Logo";
-import { Button } from "../commons/Button";
 
 export const Header = () => {
   return (
@@ -8,6 +8,7 @@ export const Header = () => {
       bg="purple.900"
       color="gray.0"
       justifyContent="space-between"
+      flexDir={["column", "row"]}
       px={8}
       py={4}
     >

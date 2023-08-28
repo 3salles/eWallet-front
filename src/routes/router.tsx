@@ -1,5 +1,5 @@
+import { LandingPage } from "@/components/pages/landing";
 import { createBrowserRouter } from "react-router-dom";
-import { LandingPage } from "../ui/pages/landing";
 
 export const router = createBrowserRouter([
   {
