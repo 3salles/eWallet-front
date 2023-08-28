@@ -1,6 +1,6 @@
 import { Icon } from "@/components/atoms/Icon";
 import { MenuDrawer } from "@/components/molecules/MenuDrawer";
-import { HStack, IconButton, Show, Text } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 
 import dayjs from "dayjs";
 import brLanguage from "dayjs/locale/pt-br";
