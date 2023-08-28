@@ -1,4 +1,5 @@
 import { Icon } from "@/components/atoms/Icon";
+import { MenuDrawer } from "@/components/molecules/MenuDrawer";
 import { HStack, IconButton, Show, Text } from "@chakra-ui/react";
 
 import dayjs from "dayjs";
@@ -14,13 +15,7 @@ export const DefaultHeader = () => {
       py={[4, 8]}
       justifyContent={["space-between", "flex-start"]}
     >
-      <Show breakpoint="(max-width: 780px)">
-        <IconButton
-          colorScheme="transparent"
-          aria-label="Abrir menu"
-          icon={<Icon name="menu" color="gray.0" />}
-        />
-      </Show>
+      <MenuDrawer />
       <HStack>
         <Icon name="chevron" color={["gray.0", "gray.500"]} />
         <Text color={["gray.0", "gray.500"]}>{date}</Text>
