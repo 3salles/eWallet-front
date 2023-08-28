@@ -11,12 +11,15 @@ export const DefaultHeader = () => {
   return (
     <HStack
       bg={["purple.900", "transparent"]}
-      px={[6]}
-      py={[4, 8]}
+      px={[6, 0]}
+      py={[4, 0]}
       justifyContent={["space-between", "flex-start"]}
+      borderBottom={["none", "1px"]}
+      w="100%"
+      style={{ borderBottomColor: "#F4F5F7" }}
     >
       <MenuDrawer />
-      <HStack>
+      <HStack pb={9}>
         <Icon name="chevron" color={["gray.0", "gray.500"]} />
         <Text color={["gray.0", "gray.500"]}>{date}</Text>
       </HStack>
