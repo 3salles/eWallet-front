@@ -1,5 +1,6 @@
-import { Stack, Image, Text } from "@chakra-ui/react";
+import { Stack, Image } from "@chakra-ui/react";
 import { heroBackground } from "../atoms/heroBackground";
+import { HeroText } from "../atoms/heroText";
 
 export const HeroImage = () => {
   return (
@@ -7,7 +8,7 @@ export const HeroImage = () => {
       {heroBackground.map((hero) => (
         <Stack key={hero.text} alignItems="center">
           <Image height={150} src={hero.src} alt={hero.alt} />
-          <Text fontWeight={700}>{hero.text}</Text>
+          <HeroText label={hero.text} />
         </Stack>
       ))}
     </>

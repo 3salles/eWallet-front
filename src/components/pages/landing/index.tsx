@@ -1,8 +1,9 @@
 import { Flex } from "@chakra-ui/react";
 
 import { Header } from "@/components/organisms/Header";
-import { HeaderSection } from "./components/templates/header-section";
-import { ImageSection } from "./components/templates/image-section";
+import { HeaderSection } from "./components/organisms/header-section";
+import { ImageSection } from "./components/organisms/image-section";
+import { Footer } from "@/components/organisms/Footer";
 
 export const LandingPage = () => {
   return (
@@ -10,6 +11,7 @@ export const LandingPage = () => {
       <Header />
       <HeaderSection />
       <ImageSection />
+      <Footer />
     </Flex>
   );
 };
