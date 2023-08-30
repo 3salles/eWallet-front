@@ -5,12 +5,12 @@ import { Header } from "../organisms/Header";
 
 export const AppTemplate = ({ children }: { children: ReactNode }) => {
   return (
-    <Stack flexDir={["column", "row"]} as="article" h="100%" spacing={0}>
+    <Stack flexDir={["column", "row"]} as="article" h="100vh" spacing={0}>
       <Hide breakpoint="(max-width: 780px)">
         <Sidebar />
       </Hide>
 
-      <Stack as="section" w="100%" px={[0, 6]} py={[0, 8]}>
+      <Stack as="section" w="100%" px={[0, 6]} py={[0, 8]} bg="gray.50">
         <Header type="default" />
         {children}
       </Stack>

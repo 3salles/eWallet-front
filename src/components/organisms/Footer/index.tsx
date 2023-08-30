@@ -5,6 +5,7 @@ export const Footer = () => {
     <Flex
       as="footer"
       bottom={0}
+      position="fixed"
       bg="purple.900"
       w="100%"
       color="gray.0"

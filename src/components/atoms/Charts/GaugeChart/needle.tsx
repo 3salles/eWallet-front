@@ -1,10 +1,10 @@
-import { ChartData } from "@/types/chart.types";
+import { IChartData } from "@/types/chart.types";
 
 const RADIAN = Math.PI / 180;
 
 function GaugeChartNeedle(
   value: number,
-  data: ChartData[],
+  data: IChartData[],
   cx: number,
   cy: number,
   iR: number,
@@ -12,7 +12,7 @@ function GaugeChartNeedle(
   color: string
 ) {
   let total = 0;
-  data.forEach((item: ChartData) => {
+  data.forEach((item: IChartData) => {
     total += item.value;
   });
 

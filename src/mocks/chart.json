@@ -1,0 +1,30 @@
+{
+  "chartLegend": "Saída x Saldo",
+  "income": {
+    "label": "Entrada",
+    "value": "R$ 20.000,00",
+    "color": "brand.500",
+    "icon": "wallet"
+  },
+  "outcome": {
+    "label": "Saída",
+    "value": "R$ 12.000,00",
+    "color": "red.500",
+    "icon": "credit"
+  },
+  "chartType": "donut",
+  "data": [
+    {
+      "name": "Saída",
+      "value": 12500.5,
+      "unit": "R$",
+      "color" : "#e73d1c"
+    },
+    {
+      "name": "Saldo",
+      "value": 8000,
+      "unit": "R$",
+      "color": "#299d91"
+    }
+  ]
+}

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 import GaugeChartNeedle from "./needle";
-import { ChartData, TooltipData } from "@/types/chart.types";
+import { IChartData, TooltipData } from "@/types/chart.types";
 import { NumberUtils } from "@/utils/number.utils";
 
-const dataChart: ChartData[] = [
+const dataChart: IChartData[] = [
   { name: "Saldo", value: 12500, color: "#299d91" },
   { name: "Meta", value: 50000, color: "#E8E8E8" },
 ];

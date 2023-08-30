@@ -16,10 +16,10 @@ export const DefaultHeader = () => {
       justifyContent={["space-between", "flex-start"]}
       borderBottom={["none", "1px"]}
       w="100%"
-      style={{ borderBottomColor: "#F4F5F7" }}
+      style={{ borderBottomColor: "#9F9F9F" }}
     >
       <MenuDrawer />
-      <HStack pb={9}>
+      <HStack pb={[0, 9]}>
         <Icon name="chevron" color={["gray.0", "gray.500"]} />
         <Text color={["gray.0", "gray.500"]}>{date}</Text>
       </HStack>

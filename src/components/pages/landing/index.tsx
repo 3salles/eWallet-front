@@ -8,7 +8,7 @@ import { ImageSection } from "./components/organisms/imageSection";
 export const LandingPage = () => {
   return (
     <Flex as="section" bg="gray.50" height="100%" flexDir="column">
-      <Header />
+      <Header type="landing" />
       <HeaderSection />
       <ImageSection />
       <Footer />

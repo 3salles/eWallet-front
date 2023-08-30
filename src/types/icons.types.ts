@@ -5,4 +5,6 @@ export type ICustomIcons =
   | "transaction"
   | "menu"
   | "logout" 
-  |"chevron";
+  | "chevron"
+  | "credit"
+  | "wallet";

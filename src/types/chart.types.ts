@@ -3,8 +3,9 @@ export interface TooltipData {
   name: string;
 }
 
-export interface ChartData {
+export interface IChartData {
   name: string;
   value: number;
   color: string;
+  unit?: string;
 }

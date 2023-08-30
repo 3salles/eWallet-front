@@ -13,6 +13,7 @@ import { TfiTarget } from "react-icons/tfi";
 import { CgLogOut } from "react-icons/cg";
 import { SlMenu } from "react-icons/sl";
 import { BiSolidChevronsRight } from "react-icons/bi";
+import { BsCreditCard2Back, BsWallet2 } from "react-icons/bs";
 import { ICustomIcons } from "@/types/icons.types";
 
 interface IconProps extends ChakraIconProps {
@@ -27,6 +28,8 @@ const icons = {
   transaction: BiTransfer,
   menu: SlMenu,
   chevron: BiSolidChevronsRight,
+  credit: BsCreditCard2Back,
+  wallet: BsWallet2,
 };
 
 export const Icon = ({ name, ...rest }: IconProps) => {
