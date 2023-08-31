@@ -1,4 +1,4 @@
-import { IChartData } from ".";
+import { IChartData, IChartType } from ".";
 import { ICustomIcons } from "./icons.types";
 
 export interface IFinancialInfo  {
@@ -8,7 +8,6 @@ export interface IFinancialInfo  {
   icon: ICustomIcons;
 }
 
-export type  IChartType = "donut" | "bar" | "gauge"
 
 export interface IChartCard {
   income: IFinancialInfo;
@@ -17,3 +16,5 @@ export interface IChartCard {
   data: IChartData[];
   chartLegend: string;
 }
+
+export type ICardInfoType = "income" | "outcome" | "amount" | "goal";

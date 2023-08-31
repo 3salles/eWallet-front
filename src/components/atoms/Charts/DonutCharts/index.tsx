@@ -2,21 +2,20 @@ import { TooltipData } from "@/types/chart.types";
 import { NumberUtils } from "@/utils/number.utils";
 import { useState } from "react";
 import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import Transactions from "../../../../mocks/transactionResume.json";
 
 const data = [
   {
     name: "Saída",
-    value: 12500.5,
-    unit: "R$",
+    value: Transactions.outcome_amount,
   },
   {
     name: "Saldo",
-    value: 8000,
-    unit: "R$",
+    value: Transactions.amount,
   },
 ];
 
-export default function DonutsChart() {
+export default function DonutChart() {
   const [tooltipInfo, setTooltipInfo] = useState({} as TooltipData);
 
   const colors = ["#e73d1c", "#299d91"];

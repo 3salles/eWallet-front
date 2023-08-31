@@ -7,4 +7,6 @@ export type ICustomIcons =
   | "logout" 
   | "chevron"
   | "credit"
-  | "wallet";
+  | "wallet"
+  | 'target'
+  | "medal";

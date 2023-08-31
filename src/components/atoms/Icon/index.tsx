@@ -14,8 +14,10 @@ import { CgLogOut } from "react-icons/cg";
 import { SlMenu } from "react-icons/sl";
 import { BiSolidChevronsRight } from "react-icons/bi";
 import { BsCreditCard2Back, BsWallet2 } from "react-icons/bs";
-import { ICustomIcons } from "@/types/icons.types";
+import { TbTargetArrow } from "react-icons/tb";
+import { CiMedal } from "react-icons/ci";
 
+import { ICustomIcons } from "@/types/icons.types";
 interface IconProps extends ChakraIconProps {
   name: ICustomIcons;
 }
@@ -30,6 +32,8 @@ const icons = {
   chevron: BiSolidChevronsRight,
   credit: BsCreditCard2Back,
   wallet: BsWallet2,
+  target: TbTargetArrow,
+  medal: CiMedal,
 };
 
 export const Icon = ({ name, ...rest }: IconProps) => {

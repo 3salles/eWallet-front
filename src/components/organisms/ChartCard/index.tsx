@@ -1,22 +1,16 @@
 import Card from "@/components/molecules/Card";
 import { Divider, HStack, Heading, Text, VStack } from "@chakra-ui/react";
-import { FinancialLabelInfo } from "./components/atoms/FinancialLabelInfo";
-import DonutsChart from "@/components/atoms/Charts/DonutCharts";
+
 import { IChartCard } from "@/types";
-import GaugeChart from "@/components/atoms/Charts/GaugeChart";
-import { BarChart } from "recharts";
+import { Chart } from "./components/atoms/Chart";
+import transactionsResume from "@/mocks/transactionResume.json";
+import { CardInfo } from "./components/atoms/CardInfo";
 
 interface ChartCardProps {
   chartData: IChartCard;
 }
 
 export const ChartCard = ({ chartData }: ChartCardProps) => {
-  const DisplayChart = {
-    donut: <DonutsChart />,
-    gauge: <GaugeChart />,
-    bar: <BarChart />,
-  };
-
   return (
     <Card>
       <VStack>
@@ -30,11 +24,14 @@ export const ChartCard = ({ chartData }: ChartCardProps) => {
         <Divider style={{ color: "#F4F5F7" }} />
         <HStack justifyContent="space-between" w="100%">
           <VStack spacing={5}>
-            <FinancialLabelInfo labelInfo={chartData?.outcome} />
-            <FinancialLabelInfo labelInfo={chartData?.income} />
+            <CardInfo
+              type="outcome"
+              value={transactionsResume.outcome_amount}
+            />
+            <CardInfo type="income" value={transactionsResume.income_amount} />
           </VStack>
           <VStack>
-            {DisplayChart[chartData.chartType]}
+            <Chart type={chartData.chartType} />
             <Text color="gray.600">{chartData?.chartLegend}</Text>
           </VStack>
         </HStack>
