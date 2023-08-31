@@ -10,10 +10,10 @@ interface CardInfoProps {
 
 export const CardInfo = ({ type, value }: CardInfoProps) => {
   const color = {
-    income: "brand.500",
+    income: "gray.900",
     outcome: "red.500",
-    amount: "gray.500",
-    goal: "gray.500",
+    amount: "gray.900",
+    goal: "gray.900",
   };
 
   return (

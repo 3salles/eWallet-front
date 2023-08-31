@@ -1,13 +1,16 @@
 import Card from "@/components/molecules/Card";
 import { Divider, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
-import { IChartType } from "@/types";
+import { ICardInfoType, IChartType } from "@/types";
 import { Chart } from "./components/atoms/Chart";
-import transactionsResume from "@/mocks/transactionResume.json";
 import { CardInfo } from "./components/atoms/CardInfo";
-import { ChartAdapters } from "@/adpaters/ChartAdapters";
+
 import { ITransactionResume } from "@/types/transactions";
 import { IGoalsResume } from "@/types/goals";
+import { NumberUtils } from "@/utils/number.utils";
+import dayjs from "dayjs";
+import brLanguage from "dayjs/locale/pt-br";
+import { ChartAdapters } from "@/adapters/ChartAdapters";
 
 interface ChartCardProps {
   chartData: ITransactionResume | IGoalsResume;
@@ -22,24 +25,55 @@ export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
     gauge: ChartAdapters.gaugeChartAdapter(chartData as IGoalsResume),
   };
 
+  const goalsData = chartData as IGoalsResume;
+  const transactionsData = chartData as ITransactionResume;
+
+  const date = dayjs().locale(brLanguage).format("MMMM, YYYY");
+
+  const labels = {
+    donut: [
+      {
+        type: "outcome",
+        value: transactionsData.outcome_amount,
+      },
+      {
+        type: "income",
+        value: transactionsData.income_amount,
+      },
+    ],
+    gauge: [
+      {
+        type: "amount",
+        value: goalsData.amount,
+      },
+      {
+        type: "goal",
+        value: goalsData.goal_value,
+      },
+    ],
+    bar: [],
+  };
+
   return (
     <Card>
       <VStack>
         <HStack as="header" justifyContent="space-between" w="100%" pb={3}>
-          <Heading size="md">R$ 8.000,00</Heading>
-          <Text fontSize="sm" color="gray.600">
-            {" "}
-            Agosto, 2023
+          <Heading size="md" color="brand.500">
+            {NumberUtils.moneyFormatter(chartData.amount)}
+          </Heading>
+          <Text fontSize="sm" color="gray.600" textTransform="capitalize">
+            {type === "donut" ? date : goalsData.main_goal}
           </Text>
         </HStack>
         <Divider style={{ color: "#F4F5F7" }} />
-        <HStack justifyContent="space-between" w="100%">
+        <HStack w="100%" spacing={20}>
           <VStack spacing={5}>
-            <CardInfo
-              type="outcome"
-              value={transactionsResume.outcome_amount}
-            />
-            <CardInfo type="income" value={transactionsResume.income_amount} />
+            {labels[type].map((label) => (
+              <CardInfo
+                type={label.type as ICardInfoType}
+                value={label.value}
+              />
+            ))}
           </VStack>
           <VStack>
             <Chart type={type} chartData={data[type]} />
