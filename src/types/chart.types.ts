@@ -1,12 +1,17 @@
 export interface TooltipData {
   fill: string;
-  name: string;
+  label: string;
 }
 
 export type  IChartType = "donut" | "bar" | "gauge"
 
+export enum ChartTypeEnum {
+  DONUT='donut',
+  BAR = 'bar',
+  GAUGE = 'gauge'
+}
 export interface IDonutChart {
-  name: string;
+  label: string;
   value: number;
 }
 
@@ -15,9 +20,12 @@ export interface IGaugeChart extends IDonutChart {
 }
 
 export interface IBarChart {
-  name: string;
+  label: string;
   income: number;
   outcome: number;
 }
 
-export type IChartData  = IDonutChart | IGaugeChart | IBarChart
+export interface IChartData {
+  type: IChartType;
+  data: IDonutChart[] | IGaugeChart[] | IBarChart[];
+}

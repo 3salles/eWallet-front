@@ -1,19 +1,36 @@
 import { ChartCard } from "@/components/organisms/ChartCard";
 import { AppTemplate } from "@/components/templates/AppTemplate";
-import { Box } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import { ChartTypeEnum } from "@/types";
 
-import chartDataCard from "../../../mocks/chart.json";
-import { IChartCard } from "@/types";
+import transactionsResume from "@/mocks/transactionResume.json";
+import goalsResume from "@/mocks/goalsResume.json";
+
+const chartSection = [
+  {
+    type: ChartTypeEnum.DONUT,
+    data: transactionsResume,
+    legend: "Saída x Saldo",
+  },
+  {
+    type: ChartTypeEnum.GAUGE,
+    data: goalsResume,
+    legend: "Saldo x Meta",
+  },
+];
 
 export const OverviewPage = () => {
-  const chartData = chartDataCard as IChartCard;
-
   return (
     <AppTemplate>
-      <Box as="section">
-        <ChartCard chartData={chartData} />
-        <div>card</div>
-      </Box>
+      <Stack as="section" direction={["column", "row"]} w="100%">
+        {chartSection.map((section) => (
+          <ChartCard
+            type={section.type}
+            chartData={section.data}
+            legend={section.legend}
+          />
+        ))}
+      </Stack>
     </AppTemplate>
   );
 };

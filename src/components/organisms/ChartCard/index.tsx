@@ -1,16 +1,27 @@
 import Card from "@/components/molecules/Card";
 import { Divider, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 
-import { IChartCard } from "@/types";
+import { IChartType } from "@/types";
 import { Chart } from "./components/atoms/Chart";
 import transactionsResume from "@/mocks/transactionResume.json";
 import { CardInfo } from "./components/atoms/CardInfo";
+import { ChartAdapters } from "@/adpaters/ChartAdapters";
+import { ITransactionResume } from "@/types/transactions";
+import { IGoalsResume } from "@/types/goals";
 
 interface ChartCardProps {
-  chartData: IChartCard;
+  chartData: ITransactionResume | IGoalsResume;
+  type: IChartType;
+  legend: string;
 }
 
-export const ChartCard = ({ chartData }: ChartCardProps) => {
+export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
+  const data = {
+    donut: ChartAdapters.donutChartAdapter(chartData as ITransactionResume),
+    bar: ChartAdapters.donutChartAdapter(chartData as ITransactionResume),
+    gauge: ChartAdapters.gaugeChartAdapter(chartData as IGoalsResume),
+  };
+
   return (
     <Card>
       <VStack>
@@ -31,8 +42,8 @@ export const ChartCard = ({ chartData }: ChartCardProps) => {
             <CardInfo type="income" value={transactionsResume.income_amount} />
           </VStack>
           <VStack>
-            <Chart type={chartData.chartType} />
-            <Text color="gray.600">{chartData?.chartLegend}</Text>
+            <Chart type={type} chartData={data[type]} />
+            <Text color="gray.600">{legend}</Text>
           </VStack>
         </HStack>
       </VStack>
