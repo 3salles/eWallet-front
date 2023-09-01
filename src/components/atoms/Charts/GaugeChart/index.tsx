@@ -18,7 +18,7 @@ export default function GaugeChart({
 }) {
   const [tooltipInfo, setTooltipInfo] = useState({} as TooltipData);
   const needlePosition =
-    chartData.find((data) => data.label === "Saldo")?.value ?? 0;
+    chartData.find((data) => data.name === "Saldo")?.value ?? 0;
 
   return (
     <PieChart width={150} height={110}>
@@ -42,7 +42,7 @@ export default function GaugeChart({
         onMouseEnter={(entry: TooltipData) => setTooltipInfo(entry)}
       >
         {chartData.map((entry) => (
-          <Cell key={`cell-${entry.label}`} fill={entry.color} />
+          <Cell key={`cell-${entry.name}`} fill={entry.color} />
         ))}
       </Pie>
       {GaugeChartNeedle(needlePosition, chartData, CX, CY, IR, OR, "#000")}

@@ -5,11 +5,11 @@ import { ITransactionResume } from "@/types/transactions";
 const donutChartAdapter = (data: ITransactionResume): IDonutChart[] => {
   const adapter: IDonutChart[] = [
     {
-      label: "Saída",
+      name: "Saída",
       value: data.income_amount,
     },
     {
-      label: "Saída",
+      name: "Saída",
       value: data.outcome_amount,
     },
   ];
@@ -20,12 +20,12 @@ const donutChartAdapter = (data: ITransactionResume): IDonutChart[] => {
 const gaugeChartAdapter = (data: IGoalsResume): IGaugeChart[] => {
   const adapter: IGaugeChart[] = [
     {
-      label: "Saldo",
+      name: "Saldo",
       value: data.amount,
       color: "#299d91",
     },
     {
-      label: "Saída",
+      name: "Meta",
       value: data.goal_value,
       color: "#E8E8E8"
     },

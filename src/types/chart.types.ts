@@ -11,7 +11,7 @@ export enum ChartTypeEnum {
   GAUGE = 'gauge'
 }
 export interface IDonutChart {
-  label: string;
+  name: string;
   value: number;
 }
 
@@ -20,7 +20,7 @@ export interface IGaugeChart extends IDonutChart {
 }
 
 export interface IBarChart {
-  label: string;
+  name: string;
   income: number;
   outcome: number;
 }
