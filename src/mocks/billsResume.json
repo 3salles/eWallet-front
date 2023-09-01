@@ -1,0 +1,18 @@
+{
+  "pending_bills": 1,
+  "expired_bills": 0,
+  "data": [
+    {
+      "status": "pending",
+      "date": "2023-09-25",
+      "description": "Condomínio",
+      "amount": 500
+    },
+    {
+      "status": "paid",
+      "date": "2023-09-01",
+      "description": "Energia",
+      "amount": 300
+    }
+  ]
+}

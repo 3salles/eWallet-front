@@ -5,6 +5,7 @@ import { ChartTypeEnum } from "@/types";
 
 import transactionsResume from "@/mocks/transactionResume.json";
 import goalsResume from "@/mocks/goalsResume.json";
+import { BillsCard } from "./components/organisms/BillsCard";
 
 const chartSection = [
   {
@@ -22,14 +23,21 @@ const chartSection = [
 export const OverviewPage = () => {
   return (
     <AppTemplate>
-      <Stack as="section" direction={["column", "row"]} w="100%">
+      <Stack
+        as="section"
+        direction={["column", "row"]}
+        w="100%"
+        alignItems={["center"]}
+      >
         {chartSection.map((section) => (
           <ChartCard
+            key={section.type}
             type={section.type}
             chartData={section.data}
             legend={section.legend}
           />
         ))}
+        <BillsCard />
       </Stack>
     </AppTemplate>
   );

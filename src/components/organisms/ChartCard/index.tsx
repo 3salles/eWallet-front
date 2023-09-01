@@ -70,6 +70,7 @@ export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
           <VStack spacing={5}>
             {labels[type].map((label) => (
               <CardInfo
+                key={label.type}
                 type={label.type as ICardInfoType}
                 value={label.value}
               />
