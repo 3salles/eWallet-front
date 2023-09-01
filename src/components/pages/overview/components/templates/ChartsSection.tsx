@@ -1,5 +1,5 @@
 import { ChartCard } from "@/components/organisms/ChartCard";
-import { Hide, Stack } from "@chakra-ui/react";
+import { Heading, Hide, Stack, VStack } from "@chakra-ui/react";
 import { ChartTypeEnum } from "@/types";
 
 import transactionsResume from "@/mocks/transactionResume.json";
@@ -11,11 +11,13 @@ const chartSection = [
     type: ChartTypeEnum.DONUT,
     data: transactionsResume,
     legend: "Saída x Saldo",
+    title: "Visão Geral",
   },
   {
     type: ChartTypeEnum.GAUGE,
     data: goalsResume,
     legend: "Saldo x Meta",
+    title: "Objetivos",
   },
 ];
 //NOTE - Add horizontal scroll on mobile
@@ -31,15 +33,25 @@ export const ChartsSection = () => {
     >
       <Hide breakpoint="(max-width: 780px)">
         {chartSection.map((section) => (
-          <ChartCard
+          <VStack
             key={section.type}
-            type={section.type}
-            chartData={section.data}
-            legend={section.legend}
-          />
+            w="100%"
+            alignItems="flex-start"
+            spacing={2}
+          >
+            <Heading fontSize="2xl">{section.title}</Heading>
+            <ChartCard
+              type={section.type}
+              chartData={section.data}
+              legend={section.legend}
+            />
+          </VStack>
         ))}
       </Hide>
-      <BillsCard />
+      <VStack w="100%" spacing={2} alignItems="flex-start">
+        <Heading fontSize="2xl">Contas</Heading>
+        <BillsCard />
+      </VStack>
     </Stack>
   );
 };
