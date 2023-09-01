@@ -1,0 +1,69 @@
+{
+  "total": 8,
+  "data": [
+    {
+      "category": "entertainment",
+      "date": "2023/06/17",
+      "amount": 300,
+      "description": "Hogwarts Legacy",
+      "institution": "PS Store",
+      "uid": "8bc91466-1253-4279-ab5e-176b52b262f5"
+    },
+    {
+      "category": "food",
+      "date": "2023/06/17",
+      "amount": 300,
+      "description": "Sanduíche",
+      "institution": "Swbway",
+      "uid": "06409edf-4582-41ee-9f20-8c7a10307d63"
+    },
+    {
+      "category": "shopping",
+      "date": "2023/06/17",
+      "amount": 300,
+      "description": "Capa para celular",
+      "institution": "Shopping",
+      "uid": "b5800321-e1e2-41ca-85f6-ff06b024057c"
+    },
+    {
+      "category": "income",
+      "date": "2023/06/17",
+      "amount": 4567.23,
+      "description": "Salário",
+      "institution": null,
+      "uid": "1d33bc00-3a71-43dc-911b-488d3657075e"
+    },
+    {
+      "category": "transportation",
+      "date": "2023/06/17",
+      "amount": 26.12,
+      "description": "Uber",
+      "institution": "Uber",
+      "uid": "654710ec-ef0b-44f8-a79c-afdcce3ace6b"
+    },
+    {
+      "category": "housing",
+      "date": "2023/06/17",
+      "amount": 354.95,
+      "description": "Conta de luz",
+      "institution": "Equatorial",
+      "uid": "aef71a89-2245-4a7a-ac0a-ab694288e189"
+    },
+    {
+      "category": "others",
+      "date": "2023/06/17",
+      "amount": 5037.64,
+      "description": "Cartão de crédito",
+      "institution": "Itaú",
+      "uid": "01017a03-a2bb-4725-a780-93981086c8dc"
+    },
+    {
+      "category": "entertainment",
+      "date": "2023/06/17",
+      "amount": 79.85,
+      "description": "Cinema",
+      "institution": "Cinepólis Shopping São Luís",
+      "uid": "a52ae6e1-a1d0-4bbf-9a6f-f1f572f7860e"
+    }
+  ]
+}

@@ -1,12 +1,10 @@
 import { Icon } from "@/components/atoms/Icon";
 import { MenuDrawer } from "@/components/molecules/MenuDrawer";
+import { DateUtils } from "@/utils/date.utils";
 import { HStack, Text } from "@chakra-ui/react";
 
-import dayjs from "dayjs";
-import brLanguage from "dayjs/locale/pt-br";
-
 export const DefaultHeader = () => {
-  const date = dayjs().locale(brLanguage).format("DD [de] MMM [de] YYYY");
+  const date = DateUtils.getFullDate("");
 
   return (
     <HStack

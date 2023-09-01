@@ -7,15 +7,22 @@ import {
 
 import { IconType } from "react-icons";
 import { FiGrid } from "react-icons/fi";
-import { BiTransfer } from "react-icons/bi";
-import { FaMoneyCheck } from "react-icons/fa";
+import {
+  BiTransfer,
+  BiSolidChevronsRight,
+  BiJoystick,
+  BiBuildingHouse,
+  BiShoppingBag,
+} from "react-icons/bi";
+import { FaMoneyCheck, FaGraduationCap } from "react-icons/fa";
 import { TfiTarget } from "react-icons/tfi";
 import { CgLogOut } from "react-icons/cg";
 import { SlMenu } from "react-icons/sl";
-import { BiSolidChevronsRight } from "react-icons/bi";
 import { BsCreditCard2Back, BsWallet2 } from "react-icons/bs";
-import { TbTargetArrow } from "react-icons/tb";
+import { TbTargetArrow, TbChartGridDots } from "react-icons/tb";
 import { CiMedal } from "react-icons/ci";
+import { MdOutlineFoodBank, MdEmojiTransportation } from "react-icons/md";
+import { GiMoneyStack } from "react-icons/gi";
 
 import { ICustomIcons } from "@/types/icons.types";
 interface IconProps extends ChakraIconProps {
@@ -34,6 +41,14 @@ const icons = {
   wallet: BsWallet2,
   target: TbTargetArrow,
   medal: CiMedal,
+  entertainment: BiJoystick,
+  housing: BiBuildingHouse,
+  food: MdOutlineFoodBank,
+  transportation: MdEmojiTransportation,
+  shopping: BiShoppingBag,
+  others: TbChartGridDots,
+  income: GiMoneyStack,
+  education: FaGraduationCap,
 };
 
 export const Icon = ({ name, ...rest }: IconProps) => {

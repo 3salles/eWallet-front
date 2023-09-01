@@ -1,4 +1,6 @@
-export type ICustomIcons =
+import { ICategories } from "./category.types";
+
+export type ICustomIcons = ICategories 
   | "bill"
   | "goals"
   | "overview"
