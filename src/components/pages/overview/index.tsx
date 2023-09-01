@@ -2,6 +2,7 @@ import { AppTemplate } from "@/components/templates/AppTemplate";
 import { ChartsSection } from "./components/templates/ChartsSection";
 import { HStack, Heading, Stack, VStack } from "@chakra-ui/react";
 import { TransactionsSection } from "./components/templates/TransactionsSection";
+import { StatisticsSection } from "./components/templates/StatisticsSection";
 
 export const OverviewPage = () => {
   return (
@@ -14,9 +15,7 @@ export const OverviewPage = () => {
           w="full"
         >
           <TransactionsSection />
-          <VStack w="100%" spacing={2} alignItems="flex-start">
-            <Heading fontSize="2xl">Estatísticas</Heading>
-          </VStack>
+          <StatisticsSection />
         </Stack>
       </VStack>
     </AppTemplate>

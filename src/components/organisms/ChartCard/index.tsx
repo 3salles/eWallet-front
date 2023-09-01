@@ -34,21 +34,21 @@ export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
     donut: [
       {
         type: "outcome",
-        value: transactionsData.outcome_amount,
+        value: transactionsData?.outcome_amount,
       },
       {
         type: "income",
-        value: transactionsData.income_amount,
+        value: transactionsData?.income_amount,
       },
     ],
     gauge: [
       {
         type: "amount",
-        value: goalsData.amount,
+        value: goalsData?.amount,
       },
       {
         type: "goal",
-        value: goalsData.goal_value,
+        value: goalsData?.goal_value,
       },
     ],
     bar: [],

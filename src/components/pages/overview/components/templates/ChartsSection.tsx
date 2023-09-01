@@ -30,6 +30,7 @@ export const ChartsSection = () => {
       w="100%"
       alignItems={["center"]}
       justifyContent={["center", "center", "space-around"]}
+      spacing={[2, 4]}
     >
       <Hide breakpoint="(max-width: 780px)">
         {chartSection.map((section) => (

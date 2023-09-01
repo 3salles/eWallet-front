@@ -31,7 +31,7 @@ const data = [
 export default function VerticalBarChart() {
   return (
     <BarChart
-      width={500}
+      width={600}
       height={300}
       data={data}
       margin={{
