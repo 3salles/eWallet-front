@@ -56,7 +56,7 @@ export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
 
   return (
     <Card>
-      <VStack>
+      <VStack w="100%">
         <HStack as="header" justifyContent="space-between" w="100%" pb={3}>
           <Heading size="md" color="brand.500">
             {NumberUtils.moneyFormatter(chartData.amount)}
@@ -66,7 +66,7 @@ export const ChartCard = ({ chartData, type, legend }: ChartCardProps) => {
           </Text>
         </HStack>
         <Divider style={{ color: "#F4F5F7" }} />
-        <HStack w="100%" spacing={20}>
+        <HStack w="100%" justifyContent="space-between">
           <VStack spacing={5}>
             {labels[type].map((label) => (
               <CardInfo

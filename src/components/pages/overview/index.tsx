@@ -28,6 +28,7 @@ export const OverviewPage = () => {
         direction={["column", "row"]}
         w="100%"
         alignItems={["center"]}
+        justifyContent={["center", "center", "space-around"]}
       >
         {chartSection.map((section) => (
           <ChartCard

@@ -10,7 +10,13 @@ interface CardProps extends ChakraCardProps {
 
 export default function Card({ children }: CardProps) {
   return (
-    <ChakraCard py={6} px={5} maxW="350px" w="100%" maxH="230px">
+    <ChakraCard
+      py={6}
+      px={5}
+      maxW={["100%", "350px", "400px"]}
+      w="100%"
+      maxH="230px"
+    >
       {children}
     </ChakraCard>
   );
