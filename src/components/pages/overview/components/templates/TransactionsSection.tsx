@@ -14,7 +14,7 @@ export const TransactionsSection = () => {
   return (
     <VStack w="100%" spacing={2} alignItems="flex-start" maxW="440px">
       <Heading fontSize="2xl">Transações</Heading>
-      <Card maxH="full">
+      <Card maxH="full" maxW="100%">
         <TabsPanel headers={headers} data={panelsList} />
       </Card>
     </VStack>

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 import {
   AreaChart as RechartsAreaChart,
   Area,
@@ -15,24 +16,18 @@ import { NumberUtils } from "@/utils/number.utils";
 
 import { ChartAdapters } from "@/adapters/ChartAdapters";
 import { AreaTooltip } from "./areaTooltip";
+import useWindowDimensions from "@/hooks/useWindowsDimenions";
 
 const money = moneyExchange.data;
 
 const data = ChartAdapters.areaChartAdapter(money);
 
 export const AreaChart = () => {
+  const { width } = useWindowDimensions();
+  const chartWidth = width < 1550 ? 300 : 400;
+
   return (
-    <RechartsAreaChart
-      width={450}
-      height={250}
-      data={data}
-      margin={{
-        top: 10,
-        right: 30,
-        left: 10,
-        bottom: 0,
-      }}
-    >
+    <RechartsAreaChart width={chartWidth} height={250} data={data}>
       <Area
         dataKey="value"
         stackId="1"

@@ -1,10 +1,9 @@
 import { AppTemplate } from "@/components/templates/AppTemplate";
 import { ChartsSection } from "./components/templates/ChartsSection";
-import { Heading, Stack, VStack } from "@chakra-ui/react";
+import { Stack, VStack } from "@chakra-ui/react";
 import { TransactionsSection } from "./components/templates/TransactionsSection";
 import { StatisticsSection } from "./components/templates/StatisticsSection";
-import Card from "@/components/molecules/Card";
-import { AreaChart } from "@/components/atoms/Charts/AreaChart";
+import { DollarPriceSection } from "./components/templates/DollarPriceSection";
 
 export const OverviewPage = () => {
   return (
@@ -15,15 +14,11 @@ export const OverviewPage = () => {
           flexDir={["column-reverse", "row"]}
           justifyContent="space-between"
           w="full"
+          gap={6}
         >
           <TransactionsSection />
           <StatisticsSection />
-          <VStack w="100%" spacing={2} alignItems="flex-start">
-            <Heading fontSize="2xl">Cotação</Heading>
-            <Card maxW="fit-content" maxH="fit-content">
-              <AreaChart />
-            </Card>
-          </VStack>
+          <DollarPriceSection />
         </Stack>
       </VStack>
     </AppTemplate>

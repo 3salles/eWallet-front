@@ -9,6 +9,17 @@ const moneyFormatter = (value: ValueType) => {
   }).format(result);
 };
 
+const compactMoneyFormat = (value: ValueType) => {
+  const result = typeof value !== 'number' ? Number(value) : value;
+
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    notation: 'compact'
+  }).format(result);
+}
+
 export const NumberUtils = {
   moneyFormatter,
+  compactMoneyFormat
 };
