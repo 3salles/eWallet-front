@@ -4,6 +4,7 @@ import { routerPaths } from "./routerPaths";
 import { LoginPage } from "@/components/pages/login";
 import { SignUpPage } from "@/components/pages/signup";
 import { OverviewPage } from "@/components/pages/overview";
+import { TransactionsPage } from "@/components/pages/transactions";
 
 export const router = createBrowserRouter([
   {
@@ -21,5 +22,9 @@ export const router = createBrowserRouter([
   {
     path: routerPaths.home,
     element: <OverviewPage />,
+  },
+  {
+    path: routerPaths.transactions,
+    element: <TransactionsPage />,
   },
 ]);

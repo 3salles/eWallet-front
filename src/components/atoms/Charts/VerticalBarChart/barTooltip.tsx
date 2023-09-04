@@ -13,10 +13,10 @@ export const BarTooltip = (data: any) => {
     <Box bg="gray.0" p={2} borderRadius="lg">
       <Text>{data?.label}</Text>
       <Text color="brand.500">
-        {NumberUtils.moneyFormatter(mothStatistics.income)}
+        {NumberUtils.moneyFormatter(mothStatistics?.income ?? 0)}
       </Text>
       <Text color="red.500">
-        {NumberUtils.moneyFormatter(mothStatistics.outcome)}
+        {NumberUtils.moneyFormatter(mothStatistics?.outcome ?? 0)}
       </Text>
     </Box>
   );
