@@ -15,7 +15,7 @@ export const TransactionDescription = ({
 }: TransactionDescriptionProps) => {
   return (
     <HStack spacing={4}>
-      <CategoryIcon category={category} />
+      <CategoryIcon category={category} showBackground />
       <HStack>
         <TransactionLabel description={description} institution={institution} />
       </HStack>

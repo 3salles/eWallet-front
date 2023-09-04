@@ -11,7 +11,7 @@ export const TransactionsPage = () => {
 
   return (
     <AppTemplate>
-      <Box mt={8}>
+      <Box mt={8} height="100%">
         <HStack as="header" justifyContent="space-between">
           <Heading fontSize="2xl" color="gray.400">
             Histórico de Transações

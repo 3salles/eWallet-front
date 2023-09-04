@@ -2,7 +2,7 @@ import { Divider } from "@chakra-ui/react";
 
 import transactionsResume from "@/mocks/transactions.json";
 import { ITransaction } from "@/types";
-import { TransactionCard } from "./Transactioncard";
+import { TransactionCard } from "./TransactionCard";
 
 interface TransactionListProps {
   filter: "income" | "outcome" | "all";
