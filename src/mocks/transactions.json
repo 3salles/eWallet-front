@@ -1,5 +1,5 @@
 {
-  "total": 8,
+  "total": 10,
   "data": [
     {
       "category": "entertainment",
@@ -64,6 +64,22 @@
       "description": "Cinema",
       "institution": "Cinepólis Shopping São Luís",
       "uid": "a52ae6e1-a1d0-4bbf-9a6f-f1f572f7860e"
+    },
+    {
+      "category": "entertainment",
+      "date": "2023/06/17",
+      "amount": 110,
+      "description": "The Witcher 3",
+      "institution": "PS Store",
+      "uid": "8bc91466-1253-4279-ab5e-176b52b262f5"
+    },
+    {
+      "category": "shopping",
+      "date": "2023/06/17",
+      "amount": 99.90,
+      "description": "Mouse",
+      "institution": "iByte",
+      "uid": "8bc91466-1253-4279-ab5e-176b52b262f5"
     }
   ]
 }

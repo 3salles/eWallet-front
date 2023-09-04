@@ -7,9 +7,12 @@ import { Button } from "@/components/atoms/Button";
 import { useState } from "react";
 import transactionsMock from "@/mocks/transactions.json";
 import { TableBody } from "../molecules/TableBody";
+import useWindowDimensions from "@/hooks/useWindowsDimenions";
 
 export const TransactionsTable = () => {
-  const [elementsSize, setElementsSize] = useState(6);
+  const { width } = useWindowDimensions();
+
+  const [elementsSize, setElementsSize] = useState(width > 1550 ? 8 : 6);
 
   const tableHeader = ["Nome", "Instituição", "Data", "Categoria", "Valor"];
 
