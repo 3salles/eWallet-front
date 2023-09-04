@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "month": "Janeiro",
+      "income": 4000,
+      "outcome": 2400
+    },
+    {
+      "month": "Fevereiro",
+      "income": 3000,
+      "outcome": 1398
+    },
+    {
+      "month": "Marco",
+      "income": 2000,
+      "outcome": 9800
+    },
+    {
+      "month": "Abril",
+      "income": 2780,
+      "outcome": 3908
+    },
+    {
+      "month": "Maio",
+      "income": 1890,
+      "outcome": 4800
+    },
+    {
+      "month": "Junho",
+      "income": 4000,
+      "outcome": 2400
+    },
+    {
+      "month": "Julho",
+      "income": 3000,
+      "outcome": 1398
+    },
+    {
+      "month": "Agosto",
+      "income": 2000,
+      "outcome": 9800
+    },
+    {
+      "month": "Setembro",
+      "income": 2780,
+      "outcome": 3908
+    },
+    {
+      "month": "Outubro",
+      "income": 1890,
+      "outcome": 4800
+    },
+    {
+      "month": "Novembro",
+      "income": 2780,
+      "outcome": 3908
+    },
+    {
+      "month": "Dezembro",
+      "income": 1890,
+      "outcome": 4800
+    }
+  ]
+}

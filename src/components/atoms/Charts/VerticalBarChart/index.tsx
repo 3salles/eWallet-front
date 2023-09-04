@@ -1,69 +1,11 @@
 import useWindowDimensions from "@/hooks/useWindowsDimenions";
 import { NumberUtils } from "@/utils/number.utils";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { BarTooltip } from "./barTooltip";
 
-const data = [
-  {
-    name: "Janeiro",
-    entrada: 4000,
-    saida: 2400,
-  },
-  {
-    name: "Fevereiro",
-    entrada: 3000,
-    saida: 1398,
-  },
-  {
-    name: "Marco",
-    entrada: 2000,
-    saida: 9800,
-  },
-  {
-    name: "Abril",
-    entrada: 2780,
-    saida: 3908,
-  },
-  {
-    name: "Maio",
-    entrada: 1890,
-    saida: 4800,
-  },
-  {
-    name: "Junho",
-    entrada: 4000,
-    saida: 2400,
-  },
-  {
-    name: "Julho",
-    entrada: 3000,
-    saida: 1398,
-  },
-  {
-    name: "Agosto",
-    entrada: 2000,
-    saida: 9800,
-  },
-  {
-    name: "Setembro",
-    entrada: 2780,
-    saida: 3908,
-  },
-  {
-    name: "Outubro",
-    entrada: 1890,
-    saida: 4800,
-  },
-  {
-    name: "Novembro",
-    entrada: 2780,
-    saida: 3908,
-  },
-  {
-    name: "Dezembro",
-    entrada: 1890,
-    saida: 4800,
-  },
-];
+import statistics from "@/mocks/statistics.json";
+
+const data = statistics.data;
 
 export default function VerticalBarChart() {
   const { width } = useWindowDimensions();
@@ -83,13 +25,13 @@ export default function VerticalBarChart() {
     >
       <CartesianGrid opacity={0.4} vertical={false} />
       <XAxis
-        dataKey="name"
+        dataKey="month"
         tickFormatter={(value: string) => {
           return value.slice(0, 3);
         }}
       />
       <YAxis
-        dataKey="saida"
+        dataKey="outcome"
         tickLine={false}
         axisLine={false}
         tickCount={8}
@@ -99,9 +41,9 @@ export default function VerticalBarChart() {
         }
         domain={["dataMin", "auto"]}
       />
-      <Tooltip />
-      <Bar dataKey="saida" fill="#e73d1c" />
-      <Bar dataKey="entrada" fill="#299d91" />
+      <Tooltip content={<BarTooltip data={data} />} />
+      <Bar dataKey="outcome" fill="#e73d1c" />
+      <Bar dataKey="income" fill="#299d91" />
     </BarChart>
   );
 }

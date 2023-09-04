@@ -20,7 +20,7 @@ export interface IGaugeChart extends IDonutChart {
 }
 
 export interface IBarChart {
-  name: string;
+  month: string;
   income: number;
   outcome: number;
 }
