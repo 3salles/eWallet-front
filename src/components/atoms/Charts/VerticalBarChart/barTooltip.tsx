@@ -8,7 +8,6 @@ export const BarTooltip = (data: any) => {
   const mothStatistics = data.data.find(
     (value: any) => value.month === data.label
   );
-  console.log(">>> data: ", mothStatistics);
 
   return (
     <Box bg="gray.0" p={2} borderRadius="lg">

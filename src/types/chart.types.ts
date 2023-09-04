@@ -1,6 +1,6 @@
 export interface TooltipData {
   fill: string;
-  label: string;
+  name: string;
 }
 
 export type  IChartType = "donut" | "bar" | "gauge"

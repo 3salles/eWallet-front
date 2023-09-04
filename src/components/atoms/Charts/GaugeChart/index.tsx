@@ -24,8 +24,8 @@ export default function GaugeChart({
     <PieChart width={150} height={110}>
       <Tooltip
         itemStyle={{
-          color: tooltipInfo.label !== "Meta" ? tooltipInfo.fill : "#000",
-          fontSize: "12px",
+          color: tooltipInfo.name !== "Meta" ? tooltipInfo.fill : "#000000",
+          fontSize: "14px",
         }}
         formatter={(value) => `${NumberUtils.moneyFormatter(value)}`}
       />
