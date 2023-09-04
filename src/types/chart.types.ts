@@ -25,6 +25,11 @@ export interface IBarChart {
   outcome: number;
 }
 
+export interface IAreaChart {
+  date: string;
+  value: number;
+}
+
 export interface IChartData {
   type: IChartType;
   data: IDonutChart[] | IGaugeChart[] | IBarChart[];

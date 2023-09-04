@@ -1,6 +1,7 @@
-import { IChartData, IChartType, IDonutChart, IGaugeChart } from "@/types";
+import { IAreaChart, IChartData, IChartType, IDonutChart, IExchange, IGaugeChart } from "@/types";
 import { IGoalsResume } from "@/types/goals";
 import { ITransactionResume } from "@/types/transactions";
+import { DateUtils } from "@/utils/date.utils";
 
 const donutChartAdapter = (data: ITransactionResume): IDonutChart[] => {
   const adapter: IDonutChart[] = [
@@ -34,6 +35,18 @@ const gaugeChartAdapter = (data: IGoalsResume): IGaugeChart[] => {
   return adapter;
 };
 
+const areaChartAdapter = (data: IExchange) => {
+  const adapter: IAreaChart[] = Object.entries(data).map((values) => ({
+    date: values[0],
+    value: values[1].USD,
+  }));
+
+  return adapter.map((data) => ({
+    date: DateUtils.getDayAndMonth(data.date),
+    value: 1 / data.value,
+  }));
+};
+
 const chartDataAdapter = (chartData:ITransactionResume | IGoalsResume, type: IChartType):IChartData => {
   const adapter = {
     donut: {
@@ -53,8 +66,10 @@ const chartDataAdapter = (chartData:ITransactionResume | IGoalsResume, type: ICh
   return adapter[type]
 }
 
+
 export const ChartAdapters = {
   donutChartAdapter,
   chartDataAdapter,
   gaugeChartAdapter,
+  areaChartAdapter,
 }

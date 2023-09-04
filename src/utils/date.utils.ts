@@ -13,6 +13,11 @@ const getFullDate = (value: string) => {
   .format("DD [de] MMM [de] YYYY")
 }
 
+const getDayAndMonth = (value: string) => {
+  return dayjs(value).locale(brLanguage).format('DD MMM')
+}
+
 export const DateUtils = {
-  getFullDate
+  getFullDate,
+  getDayAndMonth
 }
