@@ -8,7 +8,6 @@ export interface IFinancialInfo  {
   icon: ICustomIcons;
 }
 
-
 export interface IChartCard {
   income: IFinancialInfo;
   outcome: IFinancialInfo;

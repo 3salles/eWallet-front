@@ -8,15 +8,18 @@ import { useState } from "react";
 import transactionsMock from "@/mocks/transactions.json";
 import { TableBody } from "../molecules/TableBody";
 import useWindowDimensions from "@/hooks/useWindowsDimenions";
+import useTransactionContext from "@/hooks/useTransactionContext";
 
 export const TransactionsTable = () => {
   const { width } = useWindowDimensions();
+  const { transactions } = useTransactionContext();
+  console.log(">>>> ", transactions);
 
   const [elementsSize, setElementsSize] = useState(width > 1550 ? 8 : 6);
 
   const tableHeader = ["Nome", "Instituição", "Data", "Categoria", "Valor"];
 
-  const transactions = transactionsMock.data as ITransaction[];
+  // const transactions = transactionsMock.data as ITransaction[];
 
   const handleLoadMore = () => setElementsSize((old) => old + 6);
   const handleSelectedTransaction = (transaction: ITransaction) => {
@@ -35,7 +38,7 @@ export const TransactionsTable = () => {
           />
         }
       />
-      {transactions.length > elementsSize && (
+      {transactions?.length > elementsSize && (
         <Button
           label="Mostrar mais"
           variant="outline"

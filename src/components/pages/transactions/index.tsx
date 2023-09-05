@@ -4,7 +4,6 @@ import { TabsPanel } from "@/components/organisms/TabPanel";
 import { AppTemplate } from "@/components/templates/AppTemplate";
 import { Box, HStack, Heading } from "@chakra-ui/react";
 import { TransactionsTable } from "./components/organisms/TransactionsTable";
-import { Drawer } from "@/components/atoms/Drawer";
 import { TransactionDrawer } from "./components/organisms/TransactionDrawer";
 
 export const TransactionsPage = () => {
