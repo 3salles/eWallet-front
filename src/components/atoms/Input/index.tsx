@@ -1,8 +1,8 @@
 import {
   Input as ChakraInput,
-  Text,
   VStack,
   InputProps as ChakraInputProps,
+  FormLabel,
 } from "@chakra-ui/react";
 
 interface InputProps extends ChakraInputProps {
@@ -11,10 +11,10 @@ interface InputProps extends ChakraInputProps {
 
 export const Input = ({ label, ...rest }: InputProps) => {
   return (
-    <VStack spacing={1} alignItems="flex-start">
-      <Text fontWeight={700} color={["gray.0", "gray.900"]}>
+    <VStack spacing={0} alignItems="flex-start">
+      <FormLabel fontWeight={700} color={["gray.0", "gray.900"]}>
         {label}
-      </Text>
+      </FormLabel>
       <ChakraInput
         color={["gray.0", "gray.700"]}
         _placeholder={{ color: "inherit" }}
