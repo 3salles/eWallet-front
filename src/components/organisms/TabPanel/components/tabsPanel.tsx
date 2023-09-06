@@ -6,9 +6,7 @@ export const Panels = ({ dataList }: { dataList: ReactNode[] }) => {
   return (
     <TabPanels w="full">
       {dataList.map((data) => (
-        <TabPanel key={uuid()}>
-          <p>{data}</p>
-        </TabPanel>
+        <TabPanel key={uuid()}>{data}</TabPanel>
       ))}
     </TabPanels>
   );

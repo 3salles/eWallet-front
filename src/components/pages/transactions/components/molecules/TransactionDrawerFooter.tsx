@@ -1,6 +1,12 @@
 import { Button } from "@/components/atoms/Button";
 
-export const TransactionDrawerFooter = () => {
+interface TransactionDrawerFooterProps {
+  onCancel: () => void;
+}
+
+export const TransactionDrawerFooter = ({
+  onCancel,
+}: TransactionDrawerFooterProps) => {
   return (
     <>
       <Button
@@ -9,6 +15,7 @@ export const TransactionDrawerFooter = () => {
         color="red.500"
         bg="color.500"
         w="full"
+        onClick={onCancel}
       />
       <Button label="Salvar" w="full" />
     </>

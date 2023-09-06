@@ -15,13 +15,18 @@ interface SelectProps extends ChakraSelectProps {
   options: Option[];
 }
 
-export const Select = ({ label, options }: SelectProps) => {
+export const Select = ({ label, options, ...rest }: SelectProps) => {
   return (
     <VStack w="full" justifyContent="center" alignItems="flex-start">
       <FormLabel fontWeight={700} m={0}>
         {label}
       </FormLabel>
-      <ChakraSelect placeholder="Escolha uma categoria" w={350} h="48px">
+      <ChakraSelect
+        placeholder="Escolha uma categoria"
+        w={350}
+        h="48px"
+        {...rest}
+      >
         {options.map((option) => (
           <option key={option.label} value={option.value}>
             {option.label}

@@ -24,6 +24,19 @@ export interface ITransactionResume {
   outcome_amount: number;
 }
 
+export type ITransactionDrawer = {
+  visible: boolean;
+  type: 'edit' | 'create';
+  transaction: ITransaction | null;
+};
+
 export interface ITransactionContext {
   transactions: ITransaction[];
+  selectedTransaction: ITransaction;
+  transactionDrawer: ITransactionDrawer;
+  updateSelectedTransaction: (uid: string | null) => void;
+  toggleTransactionDrawer: (drawer: ITransactionDrawer) => void;
+  createTransaction: (newTransaction: Omit<ITransaction, 'uid'>) => void;
+  editTransaction: (newTransaction: ITransaction) => void;
+  deleteTransaction: (uid: string | null) => void;
 }

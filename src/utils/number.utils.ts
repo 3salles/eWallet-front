@@ -19,7 +19,19 @@ const compactMoneyFormat = (value: ValueType) => {
   }).format(result);
 }
 
+const formatCurrencyToDB = (value: string): number => {
+  let newVal = value.replace('R$', '');
+
+  const v = newVal.split(',');
+
+  v[0] = v[0].replace(new RegExp(`\\${'.'}`, 'g'), '');
+  newVal = v.join('.');
+
+  return Number(newVal);
+};
+
 export const NumberUtils = {
   moneyFormatter,
-  compactMoneyFormat
+  compactMoneyFormat,
+  formatCurrencyToDB
 };

@@ -3,13 +3,15 @@ import {
   VStack,
   InputProps as ChakraInputProps,
   FormLabel,
+  Text,
 } from "@chakra-ui/react";
 
 interface InputProps extends ChakraInputProps {
   label: string;
+  helperText?: string;
 }
 
-export const Input = ({ label, ...rest }: InputProps) => {
+export const Input = ({ label, helperText, ...rest }: InputProps) => {
   return (
     <VStack spacing={0} alignItems="flex-start">
       <FormLabel fontWeight={700} color={["gray.0", "gray.900"]}>
@@ -22,6 +24,11 @@ export const Input = ({ label, ...rest }: InputProps) => {
         w={[300, 400]}
         {...rest}
       />
+      {helperText && (
+        <Text color="red.500" fontSize="xs">
+          {helperText}
+        </Text>
+      )}
     </VStack>
   );
 };

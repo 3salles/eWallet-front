@@ -1,25 +1,29 @@
-import { Button } from "@/components/atoms/Button";
 import { Drawer } from "@/components/atoms/Drawer";
-import { useDisclosure } from "@chakra-ui/react";
-import React from "react";
 import { TransactionDrawerFooter } from "../molecules/TransactionDrawerFooter";
 import { TransactionForm } from "./TransactionForm";
+import useTransactionContext from "@/hooks/useTransactionContext";
 
 export const TransactionDrawer = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef(null);
+  const { transactionDrawer, toggleTransactionDrawer } =
+    useTransactionContext();
+
+  const { visible, transaction } = transactionDrawer;
+
+  const handleCloseDrawer = () =>
+    toggleTransactionDrawer({
+      ...transactionDrawer,
+      visible: false,
+      transaction: null,
+    });
 
   return (
-    <>
-      <Button ref={btnRef} colorScheme="teal" onClick={onOpen} label="aBRIR" />
-      <Drawer
-        isOpen={isOpen}
-        onClose={onClose}
-        ref={btnRef}
-        content={<TransactionForm />}
-        title="Nova Transação"
-        footer={<TransactionDrawerFooter />}
-      />
-    </>
+    <Drawer
+      isOpen={visible}
+      onClose={handleCloseDrawer}
+      // ref={null}
+      content={<TransactionForm />}
+      title={transaction !== null ? "Editar Transação" : "Nova Transação"}
+      footer={<TransactionDrawerFooter onCancel={handleCloseDrawer} />}
+    />
   );
 };

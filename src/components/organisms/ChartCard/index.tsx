@@ -5,7 +5,7 @@ import { ICardInfoType, IChartType } from "@/types";
 import { Chart } from "./components/atoms/Chart";
 import { CardInfo } from "./components/atoms/CardInfo";
 
-import { ITransactionResume } from "@/types/transactions";
+import { ITransactionResume } from "@/types";
 import { IGoalsResume } from "@/types/goals";
 import { NumberUtils } from "@/utils/number.utils";
 import dayjs from "dayjs";

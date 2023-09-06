@@ -23,6 +23,7 @@ export const TableBody = ({
           borderTop="1px"
           borderColor="gray.100"
           onClick={() => handleSelectTransaction(item)}
+          cursor="pointer"
         >
           <Td p={4} textAlign="center">
             {item.description}
