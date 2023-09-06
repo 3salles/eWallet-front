@@ -9,30 +9,27 @@ import { ICategories, ITransaction } from "@/types";
 import { NumberUtils } from "@/utils/number.utils";
 import { ImBin2 } from "react-icons/im";
 import { Button } from "@/components/atoms/Button";
+import { DateUtils } from "@/utils/date.utils";
 
 export const TransactionForm = () => {
-  const {
-    toggleTransactionDrawer,
-    transactionDrawer,
-    createTransaction,
-    editTransaction,
-    deleteTransaction,
-  } = useTransactionContext();
+  const { toggleTransactionDrawer, transactionDrawer, deleteTransaction } =
+    useTransactionContext();
 
   const { transaction } = transactionDrawer;
 
   const isEditionMode = transaction !== null;
+  const todayDate = new Date().toISOString();
 
-  const [formValue, setFormValue] = useState(defaultTransaction);
+  const defaultFormValue = transaction
+    ? { ...transaction, date: DateUtils.formatFormDate(transaction.date) }
+    : { ...defaultTransaction, date: DateUtils.formatFormDate(todayDate) };
+
+  const [formValue, setFormValue] = useState(defaultFormValue);
   const [errors, setErrors] = useState({
     category: false,
     date: false,
     amount: false,
   });
-
-  const todayDate = new Date().toISOString();
-  const formatDate = (date: string) =>
-    new Date(date).toISOString().split("T")[0];
 
   const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = new Date(event.target.value);
@@ -58,16 +55,6 @@ export const TransactionForm = () => {
       transaction: null,
     });
   };
-
-  useEffect(() => {
-    if (isEditionMode) {
-      setFormValue({ ...transaction, date: formatDate(transaction.date) });
-      return;
-    }
-    setFormValue({ ...formValue, date: formatDate(todayDate) });
-  }, [isEditionMode, transaction, todayDate, formValue]);
-
-  console.log(">>> form: ", formValue);
 
   return (
     <FormControl as="form">

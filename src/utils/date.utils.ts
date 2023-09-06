@@ -17,7 +17,11 @@ const getDayAndMonth = (value: string) => {
   return dayjs(value).locale(brLanguage).format('DD MMM')
 }
 
+const formatFormDate = (date: string) =>
+    new Date(date).toISOString().split("T")[0];
+
 export const DateUtils = {
   getFullDate,
-  getDayAndMonth
+  getDayAndMonth,
+  formatFormDate
 }
