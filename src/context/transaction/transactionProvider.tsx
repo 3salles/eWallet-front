@@ -49,8 +49,6 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
         ...newTransaction,
       });
 
-      console.log(">>> new: ", response);
-
       setTransactions([...transactions, response.data]);
     },
     [transactions]
@@ -59,7 +57,8 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
   const editTransaction = useCallback(
     async (newTransaction: ITransaction) => {
       const { uid } = newTransaction;
-      const response = await api.put(`transactions/${uid ?? ""}`, {
+      // eslint-disable-next-line
+      const response = await api.put(`transactions/${uid}`, {
         ...newTransaction,
       });
 

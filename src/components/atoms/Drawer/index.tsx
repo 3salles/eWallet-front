@@ -2,10 +2,8 @@ import {
   Drawer as ChakraDrawer,
   DrawerBody,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  HStack,
   IconButton,
 } from "@chakra-ui/react";
 
@@ -55,11 +53,6 @@ export const Drawer = ({
           </DrawerHeader>
 
           <DrawerBody p={0}>{content}</DrawerBody>
-          {/* <DrawerFooter p={0}>
-            <HStack w="full" spacing={4}>
-              {footer}
-            </HStack>
-          </DrawerFooter> */}
         </DrawerContent>
       </ChakraDrawer>
     </>

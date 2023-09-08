@@ -18,6 +18,7 @@ export const TransactionForm = () => {
     transactionDrawer,
     deleteTransaction,
     editTransaction,
+    createTransaction,
   } = useTransactionContext();
 
   const { transaction } = transactionDrawer;
@@ -30,6 +31,7 @@ export const TransactionForm = () => {
     : { ...defaultTransaction, date: DateUtils.formatFormDate(todayDate) };
 
   const [formValue, setFormValue] = useState(defaultFormValue);
+  const [isFormDirty, setIsFormDirty] = useState(false);
   const [errors, setErrors] = useState({
     category: false,
     date: false,
@@ -70,13 +72,12 @@ export const TransactionForm = () => {
   const handleSubmit = (event: FormEvent<HTMLDivElement>) => {
     event.preventDefault();
 
-    if (!isEditionMode) {
+    if (isEditionMode) {
       editTransaction(formValue);
     }
 
+    createTransaction(formValue);
     handleCloseDrawer();
-
-    console.log(">>> form: ", formValue);
   };
 
   return (
@@ -126,6 +127,7 @@ export const TransactionForm = () => {
               }
 
               setErrors({ ...errors, description: false });
+              setIsFormDirty(true);
             }}
           />
           <Input
@@ -139,6 +141,11 @@ export const TransactionForm = () => {
             onChange={(event) =>
               onChangeForm({ ...formValue, institution: event.target.value })
             }
+            onBlur={(event) => {
+              if (event.currentTarget.value !== "") {
+                setIsFormDirty(true);
+              }
+            }}
           />
           <Input
             id="date"
@@ -156,6 +163,7 @@ export const TransactionForm = () => {
             label="Valor"
             maxW={340}
             type="text"
+            defaultValue={formValue.amount}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               const value = NumberUtils.formatCurrencyToDB(event.target.value);
               onChangeForm({
@@ -174,6 +182,7 @@ export const TransactionForm = () => {
               }
 
               setErrors({ ...errors, amount: false });
+              setIsFormDirty(true);
             }}
           />
           <Select
@@ -196,11 +205,15 @@ export const TransactionForm = () => {
               }
 
               setErrors({ ...errors, category: false });
+              setIsFormDirty(true);
             }}
           />
         </VStack>
       </VStack>
-      <TransactionDrawerFooter onCancel={handleCloseDrawer} />
+      <TransactionDrawerFooter
+        onCancel={handleCloseDrawer}
+        disableSaveButton={isFormInvalid || !isFormDirty}
+      />
     </FormControl>
   );
 };
