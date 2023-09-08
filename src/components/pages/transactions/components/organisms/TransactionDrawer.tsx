@@ -1,5 +1,4 @@
 import { Drawer } from "@/components/atoms/Drawer";
-import { TransactionDrawerFooter } from "../molecules/TransactionDrawerFooter";
 import { TransactionForm } from "./TransactionForm";
 import useTransactionContext from "@/hooks/useTransactionContext";
 
@@ -23,7 +22,6 @@ export const TransactionDrawer = () => {
       // ref={null}
       content={<TransactionForm />}
       title={transaction !== null ? "Editar Transação" : "Nova Transação"}
-      footer={<TransactionDrawerFooter onCancel={handleCloseDrawer} />}
     />
   );
 };

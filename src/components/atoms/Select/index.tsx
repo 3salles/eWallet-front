@@ -3,6 +3,7 @@ import {
   FormLabel,
   VStack,
   SelectProps as ChakraSelectProps,
+  Text,
 } from "@chakra-ui/react";
 
 type Option = {
@@ -13,9 +14,16 @@ type Option = {
 interface SelectProps extends ChakraSelectProps {
   label: string;
   options: Option[];
+  helperText: string;
 }
 
-export const Select = ({ label, options, ...rest }: SelectProps) => {
+export const Select = ({
+  label,
+  options,
+  helperText,
+  isInvalid,
+  ...rest
+}: SelectProps) => {
   return (
     <VStack w="full" justifyContent="center" alignItems="flex-start">
       <FormLabel fontWeight={700} m={0}>
@@ -23,8 +31,10 @@ export const Select = ({ label, options, ...rest }: SelectProps) => {
       </FormLabel>
       <ChakraSelect
         placeholder="Escolha uma categoria"
-        w={350}
+        errorBorderColor="red.500"
+        w={340}
         h="48px"
+        isInvalid={isInvalid}
         {...rest}
       >
         {options.map((option) => (
@@ -33,6 +43,11 @@ export const Select = ({ label, options, ...rest }: SelectProps) => {
           </option>
         ))}
       </ChakraSelect>
+      {isInvalid && (
+        <Text color="red.500" fontSize="xs">
+          {helperText}
+        </Text>
+      )}
     </VStack>
   );
 };

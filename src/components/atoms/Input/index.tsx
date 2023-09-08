@@ -11,7 +11,12 @@ interface InputProps extends ChakraInputProps {
   helperText?: string;
 }
 
-export const Input = ({ label, helperText, ...rest }: InputProps) => {
+export const Input = ({
+  label,
+  helperText,
+  isInvalid,
+  ...rest
+}: InputProps) => {
   return (
     <VStack spacing={0} alignItems="flex-start">
       <FormLabel fontWeight={700} color={["gray.0", "gray.900"]}>
@@ -22,10 +27,12 @@ export const Input = ({ label, helperText, ...rest }: InputProps) => {
         _placeholder={{ color: "inherit" }}
         colorScheme="gray"
         w={[300, 400]}
+        isInvalid={isInvalid}
+        errorBorderColor="red.500"
         {...rest}
       />
-      {helperText && (
-        <Text color="red.500" fontSize="xs">
+      {isInvalid && (
+        <Text color="red.500" fontSize="xs" mt={1}>
           {helperText}
         </Text>
       )}

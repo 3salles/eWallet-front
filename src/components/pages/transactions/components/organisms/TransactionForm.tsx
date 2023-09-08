@@ -3,17 +3,22 @@ import { Select } from "@/components/atoms/Select";
 import { ButtonGroup, FormControl, IconButton, VStack } from "@chakra-ui/react";
 import { categoryOptions } from "../atoms/CategoryOptions";
 import useTransactionContext from "@/hooks/useTransactionContext";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import defaultTransaction from "@/context/transaction/defaultTransaction";
 import { ICategories, ITransaction } from "@/types";
-import { NumberUtils } from "@/utils/number.utils";
 import { ImBin2 } from "react-icons/im";
 import { Button } from "@/components/atoms/Button";
 import { DateUtils } from "@/utils/date.utils";
+import { NumberUtils } from "@/utils/number.utils";
+import { TransactionDrawerFooter } from "../molecules/TransactionDrawerFooter";
 
 export const TransactionForm = () => {
-  const { toggleTransactionDrawer, transactionDrawer, deleteTransaction } =
-    useTransactionContext();
+  const {
+    toggleTransactionDrawer,
+    transactionDrawer,
+    deleteTransaction,
+    editTransaction,
+  } = useTransactionContext();
 
   const { transaction } = transactionDrawer;
 
@@ -29,12 +34,16 @@ export const TransactionForm = () => {
     category: false,
     date: false,
     amount: false,
+    description: false,
   });
+
+  const isFormInvalid = Object.values(errors).includes(true);
 
   const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = new Date(event.target.value);
     const today = new Date();
     if (value > today) {
+      onChangeForm({ ...formValue, date: event.target.value });
       setErrors({ ...errors, date: true });
 
       return;
@@ -46,18 +55,39 @@ export const TransactionForm = () => {
   const onChangeForm = (value: ITransaction) => {
     setFormValue({ ...formValue, ...value });
   };
-
-  const handleDeleteTransaction = () => {
-    deleteTransaction(transaction?.uid ?? "");
+  const handleCloseDrawer = () =>
     toggleTransactionDrawer({
       ...transactionDrawer,
       visible: false,
       transaction: null,
     });
+
+  const handleDeleteTransaction = () => {
+    deleteTransaction(transaction?.uid ?? "");
+    handleCloseDrawer();
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLDivElement>) => {
+    event.preventDefault();
+
+    if (!isEditionMode) {
+      editTransaction(formValue);
+    }
+
+    handleCloseDrawer();
+
+    console.log(">>> form: ", formValue);
   };
 
   return (
-    <FormControl as="form">
+    <FormControl
+      as="form"
+      h="100%"
+      display="flex"
+      flexDir="column"
+      justifyContent="space-between"
+      onSubmit={handleSubmit}
+    >
       <VStack alignItems="flex-end">
         {isEditionMode && (
           <ButtonGroup
@@ -77,19 +107,30 @@ export const TransactionForm = () => {
         )}
         <VStack alignItems="flex-start">
           <Input
-            maxW={350}
+            id="description"
+            maxW={340}
             label="Nome"
             h="48px"
             type="text"
             placeholder="Nome da transação"
-            isRequired
             value={formValue?.description}
             onChange={(event) =>
               onChangeForm({ ...formValue, description: event.target.value })
             }
+            isInvalid={errors.description}
+            helperText="Este campo é obrigatório"
+            onBlur={(event) => {
+              if (event.currentTarget.value === "") {
+                setErrors({ ...errors, description: true });
+                return;
+              }
+
+              setErrors({ ...errors, description: false });
+            }}
           />
           <Input
-            maxW={350}
+            id="institution"
+            maxW={340}
             label="Instituição"
             type="text"
             placeholder="Nome da instituição"
@@ -100,41 +141,66 @@ export const TransactionForm = () => {
             }
           />
           <Input
+            id="date"
             label="Data"
             value={formValue.date}
             onChange={handleDateChange}
-            maxW={350}
+            maxW={340}
             type="date"
             h="48px"
+            isInvalid={errors.date}
+            helperText="Data escolhida maior que a atual"
           />
           <Input
+            id="amount"
             label="Valor"
-            maxW={350}
+            maxW={340}
             type="text"
-            placeholder="R$ 0,00"
-            h="48px"
-            value={formValue?.amount}
-            onChange={(event) => {
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
               const value = NumberUtils.formatCurrencyToDB(event.target.value);
               onChangeForm({
                 ...formValue,
                 amount: value,
               });
             }}
+            placeholder="R$ 0,00"
+            h="48px"
+            isInvalid={errors.amount}
+            helperText="Este campo é obrigatório"
+            onBlur={(event) => {
+              if (event.currentTarget.value === "") {
+                setErrors({ ...errors, amount: true });
+                return;
+              }
+
+              setErrors({ ...errors, amount: false });
+            }}
           />
           <Select
+            id="category"
             options={categoryOptions}
             label="Categoria"
-            value={formValue.category ?? "Escolha uma categoria"}
+            value={formValue.category as ICategories}
             onChange={(value) =>
               onChangeForm({
                 ...formValue,
                 category: value.target.value as ICategories,
               })
             }
+            isInvalid={errors.category}
+            helperText="Este campo é obrigatório"
+            onBlur={(event) => {
+              if (event.currentTarget.value === "") {
+                setErrors({ ...errors, category: true });
+                return;
+              }
+
+              setErrors({ ...errors, category: false });
+            }}
           />
         </VStack>
       </VStack>
+      <TransactionDrawerFooter onCancel={handleCloseDrawer} />
     </FormControl>
   );
 };

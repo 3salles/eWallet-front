@@ -49,6 +49,8 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
         ...newTransaction,
       });
 
+      console.log(">>> new: ", response);
+
       setTransactions([...transactions, response.data]);
     },
     [transactions]

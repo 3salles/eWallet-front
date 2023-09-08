@@ -15,7 +15,6 @@ import { MutableRefObject, ReactNode } from "react";
 interface DrawerProps {
   isOpen: boolean;
   title: string;
-  footer: ReactNode;
   content: ReactNode;
   ref?: MutableRefObject<HTMLButtonElement | null>;
   onClose: () => void;
@@ -26,7 +25,6 @@ export const Drawer = ({
   ref,
   title,
   onClose,
-  footer,
   content,
 }: DrawerProps) => {
   return (
@@ -57,11 +55,11 @@ export const Drawer = ({
           </DrawerHeader>
 
           <DrawerBody p={0}>{content}</DrawerBody>
-          <DrawerFooter p={0}>
+          {/* <DrawerFooter p={0}>
             <HStack w="full" spacing={4}>
               {footer}
             </HStack>
-          </DrawerFooter>
+          </DrawerFooter> */}
         </DrawerContent>
       </ChakraDrawer>
     </>
