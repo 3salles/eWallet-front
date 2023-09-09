@@ -10,19 +10,20 @@ import {
   XAxis,
 } from "recharts";
 
-import moneyExchange from "@/mocks/moneyExchange.json";
-
 import { NumberUtils } from "@/utils/number.utils";
 
-import { ChartAdapters } from "@/adapters/ChartAdapters";
 import { AreaTooltip } from "./areaTooltip";
 import useWindowDimensions from "@/hooks/useWindowsDimenions";
 
-const money = moneyExchange.data;
+interface AreaChartData {
+  date: string;
+  value: number;
+}
+interface AreaChartProps {
+  data: AreaChartData[];
+}
 
-const data = ChartAdapters.areaChartAdapter(money);
-
-export const AreaChart = () => {
+export const AreaChart = ({ data }: AreaChartProps) => {
   const { width } = useWindowDimensions();
   const chartWidth = width < 1550 ? 300 : 400;
 
