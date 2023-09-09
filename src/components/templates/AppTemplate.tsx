@@ -5,7 +5,13 @@ import { Header } from "../organisms/Header";
 
 export const AppTemplate = ({ children }: { children: ReactNode }) => {
   return (
-    <Stack flexDir={["column", "row"]} as="article" h="100vh" spacing={0}>
+    <Stack
+      flexDir={["column", "row"]}
+      as="article"
+      h="full"
+      minH="100vh"
+      spacing={0}
+    >
       <Hide breakpoint="(max-width: 780px)">
         <Sidebar />
       </Hide>
