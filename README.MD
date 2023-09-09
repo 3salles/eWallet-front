@@ -41,28 +41,28 @@ Access this project on Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel
 
 <table>
   <tr>
-    <td>Home</td>
+    <td>Landing Page</td>
     <td>Login</td>
   </tr>
   <tr>
-    <td><img width="500" alt="Home Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/1b0ac753-850d-49d4-bea9-1db20152d644"></td>
-    <td><img width="500" alt="Login Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/0d8b25b7-4ac6-452b-996e-71ae2dc534d9"></td>
+    <td><img width="500" alt="Landing page" src="https://github.com/3salles/guess-kitty/assets/62452619/1b0ac753-850d-49d4-bea9-1db20152d644"></td>
+    <td><img width="500" alt="Login Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/6f7df956-9226-4ef4-a2a5-f48a1d77370a"></td>
   </tr>
   <tr>
     <td>Create account</td>
     <td>Dashboard</td>
   </tr>
   <tr>
-    <td><img width="500" alt="Cam Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/2e20d25f-c42c-4e84-acc0-e7d6d761f590"></td>
-    <td><img width="500" alt="Checking Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/b3abd773-9bf3-4594-8540-b72e2622e401"></td>
+    <td><img width="500" alt="Register Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/47b4fd49-84f3-4770-8aae-36ae581d4344"></td>
+    <td><img width="500" alt="Dashboard Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/c31747bb-d402-4cf9-a7f2-7f2fd4b92e90"></td>
   </tr>
   <tr>
     <td>Transactions</td>
     <td>New Transaction</td>
   </tr>
   <tr>
-    <td><img width="500" alt="It is a cat" src="https://github.com/3salles/guess-kitty/assets/62452619/3e158752-e910-45f4-85d8-b844c66a3819"></td>
-    <td><img width="500" alt="It is not a cat" src="https://github.com/3salles/guess-kitty/assets/62452619/38eeb29f-8a74-4dee-a9fa-bdb8ccae5265"></td>
+    <td><img width="500" alt="Transaction Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/3e158752-e910-45f4-85d8-b844c66a3819"></td>
+    <td><img width="500" alt="New Transaction Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/38eeb29f-8a74-4dee-a9fa-bdb8ccae5265"></td>
   </tr>
  </table>
 
