@@ -19,7 +19,7 @@ export const ExchangeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    // void fetchHistoricalExchange();
+    void fetchHistoricalExchange();
   }, []);
 
   const contextValue = useMemo(
