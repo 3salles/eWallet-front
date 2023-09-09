@@ -9,11 +9,14 @@ import ExchangeContext from "./exchangeContext";
 
 export const ExchangeProvider = ({ children }: { children: ReactNode }) => {
   const [exchanges, setExchanges] = useState([] as IExchange[]);
+  const today = dayjs().subtract(1, "hour").format("YYYY-MM-DD");
+  const monthAgo = dayjs(today).subtract(1, "month").format("YYYY-MM-DD");
 
   const fetchHistoricalExchange = async () => {
-    const today = dayjs().format("YYYY-MM-DD");
-    const monthAgo = dayjs(today).subtract(1, "month").format("YYYY-MM-DD");
-    const response = await getCurrency({ date_from: monthAgo, date_to: today });
+    const response = await getCurrency({
+      date_from: monthAgo,
+      date_to: today,
+    });
 
     setExchanges(response.data.data);
   };

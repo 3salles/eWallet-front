@@ -1,13 +1,13 @@
-import { IconsType } from "@/components/atoms/Icon";
 import { LinkLabel } from "@/components/molecules/LinkLabel";
 import { routerPaths } from "@/routes/routerPaths";
+import { ICustomIcons } from "@/types";
 import { VStack } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 
 interface LinkMenu {
   redirect: string;
   label: string;
-  icon: IconsType;
+  icon: ICustomIcons;
 }
 
 const links: LinkMenu[] = [

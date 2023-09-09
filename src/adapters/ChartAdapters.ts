@@ -1,6 +1,6 @@
-import { IAreaChart, IChartData, IChartType, IDonutChart, IExchange, IGaugeChart } from "@/types";
+import { IAreaChart, IChartData, IChartType, IDonutChart, IExchange, IGaugeChart, ITransactionResume } from "@/types";
 import { IGoalsResume } from "@/types/goals";
-import { ITransactionResume } from "@/types/transactions";
+
 import { DateUtils } from "@/utils/date.utils";
 
 const donutChartAdapter = (data: ITransactionResume): IDonutChart[] => {
