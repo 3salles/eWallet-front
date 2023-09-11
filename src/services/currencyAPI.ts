@@ -15,7 +15,6 @@ export const getCurrency = async({date_from, date_to}:IExchangeFetchParams) => {
   try {
     // eslint-disable-next-line
     const response = await axios.get(`${CURRENCY_URL}/historical?`, { params })
-    console.log('>>> api: ', response)
     return response
   } catch (error) {
     console.error(error);
