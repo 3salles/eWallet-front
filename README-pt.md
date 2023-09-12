@@ -69,11 +69,12 @@ Acesse este projeto na Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel
 
 ### :computer: Technologies
 
+* [Vite](https://vitejs.dev)
 * [React](https://react.dev/)
-* [Vite](https://vitejs.dev/)
 * [TypeScript](https://www.typescriptlang.org)
 * [Chakra UI](https://chakra-ui.com/)
-* [Freecurrency API](https://freecurrencyapi.com/docs)
+* [Docker](https://www.docker.com)
+* [Freecurrency API](https://freecurrencyapi.com)
 
 ## :bricks: Installation
 
@@ -95,6 +96,16 @@ $ cd eWallet-front
 🚨 Se você não possuir o git em sua máquina, instale [aqui](https://git-scm.com/downloads).
 
 ## :lipstick: Front-end
+
+Este projeto pode ser rodado em um container do Docker.
+
+Entre na pasta `eWallet-front` e rode os seguintes comandos:
+
+```bash
+$ docker build -t ewallet-front .
+$ docker run -d -p 8080:8080 ewallet-front 
+```
+A aplicação estará disponível em `http://localhost:3000`.
 
 ### :construction: Installing Dependencies
 

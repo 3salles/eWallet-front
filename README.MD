@@ -68,9 +68,12 @@ Access this project on Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel
 
 ### :computer: Technologies
 
+* [Vite](https://vitejs.dev)
 * [React](https://react.dev/)
-* [Next.js](https://nextjs.org/)
 * [TypeScript](https://www.typescriptlang.org)
+* [Chakra UI](https://chakra-ui.com/)
+* [Docker](https://www.docker.com)
+* [Freecurrency API](https://freecurrencyapi.com)
 
 ## :bricks: Installation
 
@@ -93,6 +96,16 @@ $ cd eWallet-front
 
 ## :lipstick: Front-end
 
+This project can be used with Docker container.
+
+In `eWallet-front` folder, run following commands:
+
+```bash
+$ docker build -t ewallet-front .
+$ docker run -d -p 8080:8080 ewallet-front 
+```
+The application will be available on `http://localhost:3000`.
+
 ### :construction: Installing Dependencies
 
 In `eWallet-front` folder, install its dependencies:
@@ -109,7 +122,7 @@ Run the following command to access the application:
 $ yarn dev
 ```
 
-The application will be available on `http://localhost:3000`.
+The application will be available on `http://localhost:8080`.
 
 ## :page_facing_up: License
 
