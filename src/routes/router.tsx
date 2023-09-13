@@ -1,15 +1,17 @@
 import { LandingPage } from "@/components/pages/landing";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { routerPaths } from "./routerPaths";
 import { LoginPage } from "@/components/pages/login";
 import { SignUpPage } from "@/components/pages/signup";
 import { OverviewPage } from "@/components/pages/overview";
 import { TransactionsPage } from "@/components/pages/transactions";
+import { NotFoundPage } from "@/components/pages/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+    errorElement: <Navigate to={routerPaths.not_found} replace={true} />,
   },
   {
     path: routerPaths.login,
@@ -26,5 +28,9 @@ export const router = createBrowserRouter([
   {
     path: routerPaths.transactions,
     element: <TransactionsPage />,
+  },
+  {
+    path: routerPaths.not_found,
+    element: <NotFoundPage />,
   },
 ]);

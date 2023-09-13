@@ -5,4 +5,5 @@ export const routerPaths = {
   goals: '/home/goals',
   signup: '/signup',
   login: '/login',
+  not_found: '/404'
 };
