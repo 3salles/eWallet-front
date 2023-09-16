@@ -18,24 +18,24 @@
 <!-- TABLE OF CONTENTS -->
 ## 🗂 Table of Contents
 
-* [About the Project](#book-about-the-project)
-  * [Technologies](#computer-technologies)
-* [Installation](#bricks-installation)
-  * [Prerequisites](#construction-prerequisites)
+* [Sobre o projeto](#book-sobre-o-projeto)
+  * [Tecnologias](#computer-tecnologias)
+* [Instalação](#bricks-instalacao)
+  * [Pré-requisitos](#construction-pre-requisitos)
   * [Front-end](#lipstick-front-end)
-    * [Installing Dependencies](#construction-installing-dependencies)
-    * [Setting Front-end](#wrench-setting-front-end)
-    * [Running Front-end](#arrow_forward-running-front-end)
-* [License](#page_facing_up-license)
-* [Author](#woman_technologist-author)
+    * [Instalando Dependências](#construction-instalando-dependencias)
+    * [Configurando Front-end](#wrench-configurando-front-end)
+    * [Rodando Front-end](#arrow_forward-rodando-front-end)
+* [Licença](#page_facing_up-licenca)
+* [Autora](#woman_technologist-autora)
 
-## :book: About The Project
+## :book: Sobre o projeto
 
 Esta é a UI do website financeiro eWallet desenvolvido para a pós graduação de Engenharia de Software da PUC-Rio.
 
 Link para acessar o back-end do projeto: [eWallet-back](https://github.com/3salles/eWallet-back).
 
-Acesse este projeto na Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel.app).
+<!-- Acesse este projeto na Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel.app). -->
 
 * Screenshots
 
@@ -67,7 +67,7 @@ Acesse este projeto na Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel
  </table>
 
 
-### :computer: Technologies
+### :computer: Tecnologias
 
 * [Vite](https://vitejs.dev)
 * [React](https://react.dev/)
@@ -76,11 +76,11 @@ Acesse este projeto na Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel
 * [Docker](https://www.docker.com)
 * [Freecurrency API](https://freecurrencyapi.com)
 
-## :bricks: Installation
+## :bricks: Instalação
 
 Este projeto usa [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com), você precisa deles para construir as dependências dele.
 
-### :construction: Prerequisites
+### :construction: Pré-requisitos
 
 Clone o repositório deste projeto:
 
@@ -88,7 +88,7 @@ Clone o repositório deste projeto:
 
 $ git clone https://github.com/3salles/eWallet-front.git
 
-# Entre nas pasta`eWallet-front`:
+# Entre na pasta`eWallet-front`:
 
 $ cd eWallet-front
 ```
@@ -107,13 +107,32 @@ $ docker run -d -p 8080:8080 ewallet-front
 ```
 A aplicação estará disponível em `http://localhost:3000`.
 
-### :construction: Installing Dependencies
+### :construction: Instalando Dependências
 
 Dentro da pasta `eWallet-front`, instale as dependências:
 
 ```bash
 $ yarn install
 ```
+
+
+### :wrench: Configurando Front-end
+
+Antes de rodar o projeto, crie um arquivo `.env` na pasta `eWallet-front` com as seguintes variáveis de ambiente:
+
+```
+VITE_BASE_API_URL_DEV=http://127.0.0.1:5001 //URL para a API em localhost
+
+VITE_BASE_API_URL=http://127.0.0.1:5001 // URL para a API em deploy
+
+VITE_FREECURRENCY_KEY // Você deve adicionar sua própria key
+VITE_CURRENCY_URL=https://api.freecurrencyapi.com/v1 // URL para a API do freecurrency
+```
+
+Você pode obter sua key da API do freecurrency [aqui](https://freecurrencyapi.com). 
+
+🚨 Este projeto ainda não está em prod, e o backend também não. Sendo assim, utilize a URL de localhost na URL de deploy.
+
 
 ### :arrow_forward: Running Front-end
 
@@ -123,13 +142,13 @@ Rode o seguinte comando para ver a aplicação:
 $ yarn dev
 ```
 
-A aplicação estará disponível em  `http://localhost:5173`.
+A aplicação estará disponível em  `http://localhost:8080`.
 
-## :page_facing_up: License
+## :page_facing_up: Licença
 
 Este projeto está sob a licença [GPL](https://github.com/3salles/eWallet-front/blob/main/LICENSE).
 
-## :woman_technologist: Author
+## :woman_technologist: Autora
 
 [Beatriz Salles](https://github.com/3salles)
 

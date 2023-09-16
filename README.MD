@@ -35,7 +35,7 @@ This is eWallet (a financial website) front-end. It was developed for a postgrad
 
 Link to access back-end project: [eWallet-back](https://github.com/3salles/eWallet-back).
 
-Access this project on Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel.app).
+<!-- Access this project on Vercel [ewallet](https://ewallet-79nux12gd-3salles.vercel.app). -->
 
 * Screenshots
 
@@ -113,6 +113,23 @@ In `eWallet-front` folder, install its dependencies:
 ```bash
 $ yarn install
 ```
+
+### :wrench: Setting Front-end
+
+Before running project, create a .env file in `eWallet-front` folder with following environment keys:
+
+```
+VITE_BASE_API_URL_DEV=http://127.0.0.1:5001 //URL for localhost API
+
+VITE_BASE_API_URL=http://127.0.0.1:5001 // URL for deployed API
+
+VITE_FREECURRENCY_KEY // You can add yours key
+VITE_CURRENCY_URL=https://api.freecurrencyapi.com/v1 // URL for freecurrency API
+```
+
+You can get your own key to freecurrency API [here](https://freecurrencyapi.com). 
+
+🚨 This project project is not deployed yet, and the backend API is not deployed too. So use localhost URL in deployed API key. 
 
 ### :arrow_forward: Running Front-end
 
