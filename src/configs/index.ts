@@ -3,7 +3,7 @@ import { LocationOriginEnum } from "@/types";
 const {VITE_BASE_API_URL_DEV, VITE_BASE_API_URL, VITE_FREECURRENCY_KEY, VITE_CURRENCY_URL} = import.meta.env
 
 const nameFlag: { [k: string]: LocationOriginEnum } = {
-  'ewallet-three': LocationOriginEnum.PROD,
+  'ewallet-front': LocationOriginEnum.PROD,
   localhost: LocationOriginEnum.DEV,
 };
 
