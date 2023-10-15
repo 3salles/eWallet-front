@@ -18,7 +18,7 @@ export const OverviewPage = () => {
         >
           <TransactionsSection />
           <StatisticsSection />
-          <DollarPriceSection />
+          {/* <DollarPriceSection /> */}
         </Stack>
       </VStack>
     </AppTemplate>

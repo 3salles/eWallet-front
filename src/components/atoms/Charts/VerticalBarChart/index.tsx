@@ -9,11 +9,21 @@ const data = statistics.data;
 
 export default function VerticalBarChart() {
   const { width } = useWindowDimensions();
-  const chartWidth = width < 1550 ? 450 : 600;
+
+  const chartWidth = () => {
+    switch (true) {
+      case width >= 1550:
+        return 900;
+      case width >= 1090 && width < 1550:
+        return 700;
+      default:
+        return 400;
+    }
+  };
 
   return (
     <BarChart
-      width={chartWidth}
+      width={chartWidth()}
       height={300}
       data={data}
       margin={{
