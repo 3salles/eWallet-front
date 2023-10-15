@@ -1,8 +1,8 @@
 import { Divider } from "@chakra-ui/react";
 
-import transactionsResume from "@/mocks/transactions.json";
 import { ITransaction } from "@/types";
 import { TransactionCard } from "./TransactionCard";
+import useTransactionContext from "@/hooks/useTransactionContext";
 
 interface TransactionListProps {
   filter: "income" | "outcome" | "all";
@@ -10,7 +10,8 @@ interface TransactionListProps {
 // REFACTOR - When get info from API, just receive an array with transactions
 
 export const TransactionsList = ({ filter }: TransactionListProps) => {
-  const transactions = transactionsResume.data as ITransaction[];
+  const { transactions } = useTransactionContext();
+
   const outcomeTransactions = transactions.filter(
     (transaction) => transaction.category !== "income"
   );

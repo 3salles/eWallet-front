@@ -3,7 +3,6 @@ import { ChartsSection } from "./components/templates/ChartsSection";
 import { Stack, VStack } from "@chakra-ui/react";
 import { TransactionsSection } from "./components/templates/TransactionsSection";
 import { StatisticsSection } from "./components/templates/StatisticsSection";
-import { DollarPriceSection } from "./components/templates/DollarPriceSection";
 
 export const OverviewPage = () => {
   return (
