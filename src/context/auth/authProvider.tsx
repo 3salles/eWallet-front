@@ -5,8 +5,9 @@
 import { ReactNode, useCallback, useMemo, useState } from "react";
 import AuthContext from "./authContext";
 import api from "@/services/api";
-import { IAuth, IError } from "@/types";
+import { IAuth, IError, INewUser } from "@/types";
 import { ErrorAdapter } from "@/adapters/ErrorAdapter";
+import Cookies from "js-cookie";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
@@ -17,19 +18,33 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       .post("/login", { ...auth })
       .then((response) => response.data.access_token)
       .catch((error) => {
-        console.log(">>>> error: ", error);
+        console.error(">>>> error: ", error);
         setAuthError(ErrorAdapter(error));
         throw new Error(error);
       });
   }, []);
 
-  const addToken = useCallback((token: string) => setToken(token), []);
+  const register = useCallback(async (newUser: INewUser) => {
+    return await api
+      .post("/register", { ...newUser })
+      .then((response) => response.data.access_token)
+      .catch((error) => {
+        console.error(">>>> error: ", error);
+        setAuthError(ErrorAdapter(error));
+        throw new Error(error);
+      });
+  }, []);
+
+  const addToken = useCallback(
+    (token: string) => Cookies.set("token", token, { expires: 1 }),
+    []
+  );
 
   const clearErrorMessage = useCallback(() => setAuthError({} as IError), []);
 
   const contextValue = useMemo(
-    () => ({ token, login, addToken, authError, clearErrorMessage }),
-    [token, login, addToken, authError, clearErrorMessage]
+    () => ({ login, addToken, authError, clearErrorMessage, register }),
+    [login, addToken, authError, clearErrorMessage, register]
   );
 
   return (
