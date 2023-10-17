@@ -15,9 +15,8 @@ const ORIGIN_NAME: LocationOriginEnum =
 const isProdAmbient = LocationOriginEnum.PROD === ORIGIN_NAME
 
 export const BASE_URL_API = isProdAmbient
-  ? VITE_BASE_API_URL_DEV
-  : VITE_BASE_API_URL;
-
+  ? VITE_BASE_API_URL: VITE_BASE_API_URL_DEV;
+console.log('>>> ', isProdAmbient)
 
 export const FREECURRENCY_KEY = VITE_FREECURRENCY_KEY
 export const CURRENCY_URL = VITE_CURRENCY_URL
