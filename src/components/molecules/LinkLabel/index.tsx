@@ -5,8 +5,9 @@ import { HStack, Link, Text } from "@chakra-ui/react";
 interface LinkLabelProps {
   label: string;
   icon: ICustomIcons;
-  redirect: string;
+  redirect?: string;
   active?: boolean;
+  onClick?: () => void;
 }
 
 export const LinkLabel = ({
@@ -14,6 +15,7 @@ export const LinkLabel = ({
   icon,
   active,
   redirect,
+  onClick,
 }: LinkLabelProps) => {
   return (
     <Link
@@ -30,6 +32,7 @@ export const LinkLabel = ({
         _hover={{ bg: "brand.50" }}
         justifyContent="center"
         bg={`${active ? "brand.500" : "transparent"}`}
+        onClick={onClick}
       >
         <Icon name={icon} />
         <Text w="100%" color="gray.0" fontWeight={700}>

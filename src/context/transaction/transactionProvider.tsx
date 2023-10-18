@@ -8,8 +8,16 @@ import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import TransactionContext from "./transactionsContext";
 import defaultTransaction from "./defaultTransaction";
 import uuid from "@/utils/uuid";
+import { cookiesUtils } from "@/utils/cookies.utils";
 
 export const TransactionProvider = ({ children }: { children: ReactNode }) => {
+  const token = cookiesUtils.getCookies("token") ?? "";
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const [transactions, setTransactions] = useState<ITransaction[]>(
     [] as ITransaction[]
   );
@@ -25,7 +33,7 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchTransactions = async () => {
     return await api
-      .get("/transactions")
+      .get("/transactions", config)
       .then((response) => setTransactions(response.data.transactions))
       .catch((error) => {
         console.error(error);

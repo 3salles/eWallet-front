@@ -2,13 +2,17 @@ import { Button } from "@/components/atoms/Button";
 import { Input } from "@/components/atoms/Input";
 import useAuthContext from "@/hooks/useAuthContext";
 import { routerPaths } from "@/routes/routerPaths";
+import { cookiesUtils } from "@/utils/cookies.utils";
 import { FormControl, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
-  const { login, addToken, authError, clearErrorMessage } = useAuthContext();
+  const { login, authError, clearErrorMessage } = useAuthContext();
   const navigate = useNavigate();
+  const token = cookiesUtils.getCookies("token");
+
+  console.log(">>> ", token);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -16,12 +20,11 @@ export const LoginForm = () => {
 
   const hasError = authError.message !== undefined;
 
-  const onSubmit = async () => {
-    const token = await login({ username, password });
+  const onSubmit = () => {
+    login({ username, password });
     setIsLoading(true);
 
     if (token) {
-      addToken(token);
       navigate(routerPaths.home);
     }
   };
