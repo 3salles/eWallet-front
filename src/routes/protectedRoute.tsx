@@ -10,6 +10,7 @@ export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
 
   const checkUserToken = () => {
     const userToken = cookiesUtils.getCookies("token");
+    console.log(">>>> token protecd: ", userToken);
 
     if (!userToken || userToken === undefined) {
       setIsAuthenticated(false);

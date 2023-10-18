@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
-import { ReactNode, useCallback, useMemo, useState } from "react";
+import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import AuthContext from "./authContext";
 import api from "@/services/api";
 import { IAuth, IError, INewUser, IUser } from "@/types";
@@ -11,15 +11,6 @@ import Cookies from "js-cookie";
 import { cookiesUtils } from "@/utils/cookies.utils";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const token = cookiesUtils.getCookies("token") ?? "";
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  console.log(">>> token: ", token);
-
   const [user, setUser] = useState<IUser>({} as IUser);
   const [authError, setAuthError] = useState<IError>({} as IError);
 
@@ -54,19 +45,29 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const clearErrorMessage = useCallback(() => setAuthError({} as IError), []);
 
   const logout = useCallback(async () => {
+    const token = cookiesUtils.getCookies("token");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token ?? ""}`,
+      },
+    };
+
     return api
       .post("/logout", config)
-      .then((response) => response.data.message)
+      .then((response) => {
+        cookiesUtils.removeCookies("token");
+        return response.data.message;
+      })
       .catch((error) => {
         console.error(">>>> error: ", error);
         setAuthError(ErrorAdapter(error));
         throw new Error(error);
       });
-  }, [config]);
+  }, []);
 
   const contextValue = useMemo(
     () => ({ login, authError, clearErrorMessage, register, user, logout }),
-    [login, authError, clearErrorMessage, register, user, logout]
+    [login, authError, clearErrorMessage, register, user]
   );
 
   return (

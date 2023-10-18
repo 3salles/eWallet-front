@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const FooterMenu = () => {
   const { logout } = useAuthContext();
+
   const navigate = useNavigate();
 
   const handleLogout = () => {

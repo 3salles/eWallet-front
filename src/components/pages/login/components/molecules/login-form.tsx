@@ -4,15 +4,13 @@ import useAuthContext from "@/hooks/useAuthContext";
 import { routerPaths } from "@/routes/routerPaths";
 import { cookiesUtils } from "@/utils/cookies.utils";
 import { FormControl, Text, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
   const { login, authError, clearErrorMessage } = useAuthContext();
   const navigate = useNavigate();
   const token = cookiesUtils.getCookies("token");
-
-  console.log(">>> ", token);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,13 +21,19 @@ export const LoginForm = () => {
   const onSubmit = () => {
     login({ username, password });
     setIsLoading(true);
-
-    if (token) {
-      navigate(routerPaths.home);
-    }
   };
 
   const onResetInterface = () => clearErrorMessage();
+
+  useEffect(() => {
+    onResetInterface();
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      navigate(routerPaths.home);
+    }
+  }, [token]);
 
   return (
     <FormControl>
