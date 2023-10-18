@@ -12,11 +12,6 @@ import { cookiesUtils } from "@/utils/cookies.utils";
 
 export const TransactionProvider = ({ children }: { children: ReactNode }) => {
   const token = cookiesUtils.getCookies("token") ?? "";
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
 
   const [transactions, setTransactions] = useState<ITransaction[]>(
     [] as ITransaction[]
@@ -32,6 +27,12 @@ export const TransactionProvider = ({ children }: { children: ReactNode }) => {
     });
 
   const fetchTransactions = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
     return await api
       .get("/transactions", config)
       .then((response) => setTransactions(response.data.transactions))
