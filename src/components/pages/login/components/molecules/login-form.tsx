@@ -32,6 +32,7 @@ export const LoginForm = () => {
   useEffect(() => {
     if (token) {
       navigate(routerPaths.home);
+      setIsLoading(false);
     }
   }, [token]);
 

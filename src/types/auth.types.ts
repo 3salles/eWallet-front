@@ -1,4 +1,4 @@
-import { IError, INewUser, IUser } from ".";
+import { IError, INewUser} from ".";
 
 export interface IAuth {
   username: string;
@@ -6,7 +6,6 @@ export interface IAuth {
 }
 export interface IAuthContext {
   authError: IError;
-  user: IUser;
   login: (auth: IAuth) => any;
   register: (newUser: INewUser) => any;
   clearErrorMessage: () => void

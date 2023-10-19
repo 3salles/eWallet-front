@@ -13,6 +13,7 @@ export const FooterMenu = () => {
   const handleLogout = () => {
     logout();
     cookiesUtils.removeCookies("token");
+    cookiesUtils.removeCookies("user");
     navigate("/");
   };
 
