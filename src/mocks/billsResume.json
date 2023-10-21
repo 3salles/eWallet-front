@@ -1,18 +1,24 @@
 {
   "pending_bills": 1,
-  "expired_bills": 0,
+  "expired_bills": 1,
   "data": [
     {
-      "status": "pending",
-      "date": "2023-09-25",
+      "status": "paid",
+      "date": "2023-10-15",
+      "description": "Energia",
+      "amount": 304.49
+    },
+    {
+      "status": "expired",
+      "date": "2023-10-10",
       "description": "Condomínio",
       "amount": 500
     },
     {
-      "status": "paid",
-      "date": "2023-09-01",
-      "description": "Energia",
-      "amount": 300
+      "status": "pending",
+      "date": "2023-10-25",
+      "description": "Cartão",
+      "amount": 1285.73
     }
   ]
 }

@@ -1,6 +1,5 @@
 import { Table } from "@/components/atoms/Table";
 import { ITransaction } from "@/types";
-import { TableHeader } from "../atoms/TableHeader";
 
 import { VStack } from "@chakra-ui/react";
 import { Button } from "@/components/atoms/Button";
@@ -8,6 +7,7 @@ import { useState } from "react";
 import { TableBody } from "../molecules/TableBody";
 import useWindowDimensions from "@/hooks/useWindowsDimenions";
 import useTransactionContext from "@/hooks/useTransactionContext";
+import { TableHeader } from "@/components/atoms/Table/TableHeader";
 
 export const TransactionsTable = () => {
   const { width } = useWindowDimensions();

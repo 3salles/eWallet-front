@@ -6,6 +6,7 @@ import { SignUpPage } from "@/components/pages/signup";
 import { OverviewPage } from "@/components/pages/overview";
 import { TransactionsPage } from "@/components/pages/transactions";
 import { NotFoundPage } from "@/components/pages/NotFound";
+import { BillsPage } from "@/components/pages/bills";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
   {
     path: routerPaths.transactions,
     element: <TransactionsPage />,
+  },
+  {
+    path: routerPaths.bills,
+    element: <BillsPage />,
   },
   {
     path: routerPaths.not_found,
