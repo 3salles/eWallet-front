@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       .post("/register", { ...newUser })
       .then((response) => {
         Cookies.set("token", response.data.access_token, { expires: 1 });
-        Cookies.set("user", response.data.user, { expires: 1 });
+        Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
       })
       .catch((error) => {
         console.error(">>>> error: ", error);

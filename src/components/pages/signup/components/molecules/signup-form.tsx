@@ -2,12 +2,13 @@ import { Button } from "@/components/atoms/Button";
 import { Input } from "@/components/atoms/Input";
 import useAuthContext from "@/hooks/useAuthContext";
 import { routerPaths } from "@/routes/routerPaths";
+import { cookiesUtils } from "@/utils/cookies.utils";
 import { FormControl, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const SignUpForm = () => {
-  const { register, clearErrorMessage, authError, addToken } = useAuthContext();
+  const { register, clearErrorMessage, authError } = useAuthContext();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -20,13 +21,14 @@ export const SignUpForm = () => {
     password: false,
   });
 
-  const onSubmit = async () => {
-    const token = await register({ name, username, password });
+  const onSubmit = () => {
+    register({ name, username, password });
+
+    const token = cookiesUtils.getCookies("token");
 
     setIsLoading(true);
 
     if (token) {
-      addToken(token);
       navigate(routerPaths.home);
     }
   };
@@ -35,6 +37,10 @@ export const SignUpForm = () => {
     setIsLoading(false);
     clearErrorMessage();
   };
+
+  useEffect(() => {
+    onResetInterface();
+  }, []);
 
   return (
     <FormControl>
