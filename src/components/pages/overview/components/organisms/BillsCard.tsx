@@ -12,7 +12,7 @@ export const BillsCard = () => {
     <Card>
       <CardHeader />
       <VStack pt={2}>
-        {bills.map((bill) => (
+        {bills.slice(0, 2).map((bill) => (
           <BillInfo key={bill.description} bill={bill} />
         ))}
       </VStack>
