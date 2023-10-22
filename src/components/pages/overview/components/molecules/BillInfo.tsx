@@ -14,7 +14,7 @@ export const BillInfo = ({ bill }: BillInfoProps) => {
       <Divider style={{ color: "#F4F5F7" }} />
       <HStack justifyContent="space-between" w="100%">
         <HStack spacing={3}>
-          <DateCard date="2023-09-25" />
+          <DateCard date={bill.date} />
           <BillLabel status={bill.status} label={bill.description} />
         </HStack>
         <AmountCard amount={bill.amount} />
