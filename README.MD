@@ -54,7 +54,7 @@ Link to access back-end project: [eWallet-back](https://github.com/3salles/eWall
   </tr>
   <tr>
     <td><img width="500" alt="Register Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/47b4fd49-84f3-4770-8aae-36ae581d4344"></td>
-    <td><img width="500" alt="Dashboard Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/c31747bb-d402-4cf9-a7f2-7f2fd4b92e90"></td>
+    <td><img width="500" alt="Dashboard Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/2360c169-b6bd-40bb-b453-989cd337597c"></td>
   </tr>
   <tr>
     <td>Transactions</td>
@@ -63,6 +63,13 @@ Link to access back-end project: [eWallet-back](https://github.com/3salles/eWall
   <tr>
     <td><img width="500" alt="Transaction Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/3e158752-e910-45f4-85d8-b844c66a3819"></td>
     <td><img width="500" alt="New Transaction Screen" src="https://github.com/3salles/guess-kitty/assets/62452619/38eeb29f-8a74-4dee-a9fa-bdb8ccae5265"></td>
+  </tr>
+  <tr>
+    <td>Bills</td>
+    
+  </tr>
+  <tr>
+    <td><img width="500" alt="Bills Screen" src="https://github.com/3salles/eWallet-front/assets/62452619/61de8488-a19b-4d4c-9350-59359723c8ad"></td>
   </tr>
  </table>
 
@@ -140,6 +147,10 @@ $ yarn dev
 ```
 
 The application will be available on `http://localhost:8080`.
+
+🚨 You can create an account or use `username: admin` and `password: 123456`.
+
+🚨 If login has a delay to go to next page, you can reload page or go to page: `http://localhost:8080/home/overview`.
 
 ## :page_facing_up: License
 
